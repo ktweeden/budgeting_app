@@ -26,4 +26,16 @@ class Transaction
     @id = Transaction.new(result).id
   end
 
+  def self.all
+    sql = "SELECT * FROM transactions;"
+    results = SqlRunner.run(sql)
+    results.map {|transaction| Transaction.new(transaction)}
+  end
+
+  def self.total_spent
+    sql = "SELECT SUM (amount) FROM transactions;"
+    result = SqlRunner.run(sql).first['sum'].to_i
+    result/100.0
+  end
+
 end

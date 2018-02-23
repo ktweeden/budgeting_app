@@ -1,6 +1,9 @@
+require 'pry'
+
 require_relative '../models/merchant'
 require_relative '../models/tag'
 require_relative '../models/transaction'
+
 
 merchants = [
   Merchant.new({'name' => 'Tesco'}),
@@ -61,3 +64,7 @@ transations = [
 ]
 
 transations.each {|transation| transation.save}
+
+binding.pry
+
+nil

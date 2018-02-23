@@ -18,4 +18,13 @@ class Tag
     @id = Tag.new(result).id
   end
 
+  def total_spent
+    sql = "SELECT SUM (amount)
+    FROM transactions
+    WHERE id = $1;"
+    values = [@id]
+    result = SqlRunner.run(sql, values).first['sum'].to_i
+    result/100.0
+  end
+
 end
