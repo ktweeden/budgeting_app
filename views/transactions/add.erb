@@ -1,0 +1,19 @@
+<main>
+  <form action="/add/transaction" method="post">
+    <label for="amount">Amount:</label>
+    <input type="number" name="amount">
+    <label for="merchant">Merchant:</label>
+    <select name="merchant_id">
+      <% @merchants.each do |merchant| %>
+        <option value="<%=merchant.id%>"><%=merchant.name%></option>
+      <% end %>
+    </select>
+    <label for="tag">Tag:</label>
+    <select name="tag_id">
+      <% @tags.each do |tag| %>
+        <option value="<%=tag.id%>"><%=tag.name%></option>
+      <% end %>
+    </select>
+    <input type="submit" value="Add Transaction">
+  </form>
+</main>

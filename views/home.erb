@@ -1,0 +1,22 @@
+<main>
+  <section>
+    <h2>Total Spent: <%= Transaction.total_spent %></h2>
+    <h2><a href="/add/transaction">Add new transaction</a></h2>
+  </section>
+  <section>
+    <table>
+      <tr>
+        <th>Amount</td>
+        <th>Merchant</td>
+        <th>Tag</td>
+      </tr>
+      <% @transactions.each do |transaction| %>
+      <tr>
+        <td><%= transaction.amount %></td>
+        <td><%= Merchant.find_by_id(transaction.merchant_id).name %></td>
+        <td><%= Tag.find_by_id(transaction.tag_id).name %></td>
+      </tr>
+      <% end %>
+    </table>
+  </section>
+</main>
