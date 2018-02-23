@@ -13,9 +13,9 @@ CREATE TABLE merchants (
   name VARCHAR(255)
 );
 
-CREATE TABLE transations (
+CREATE TABLE transactions (
   id SERIAL4 PRIMARY KEY,
   amount INT4,
-  merchant_id INT4 REFERENCES merchants,
-  tag_id INT4 REFERENCES tags
+  merchant_id INT4 REFERENCES merchants ON DELETE CASCADE,
+  tag_id INT4 REFERENCES tags ON DELETE CASCADE
 );
