@@ -1,0 +1,63 @@
+@import "_global_variables";
+
+.main-title {
+  text-align: center;
+  padding: 2rem 0;
+
+  a {
+    color: $dark-blue;
+  }
+
+  a:visited {
+    color: $dark-blue;
+  }
+
+}
+
+html {
+  font-family: $content-font;
+  box-sizing: border-box;
+}
+
+
+a {
+  text-decoration: none;
+  color: $yellow;
+}
+
+a:visited {
+  color: $yellow;
+}
+
+h1 {
+  font-size: 4rem;
+  font-family: $header-font;
+}
+
+h2 {
+  font-size: 1.75rem;
+  font-family: $header-font;
+}
+
+h3 {
+  font-size: 1.5rem;
+  font-family: $header-font;
+}
+
+table {
+  justify-self: center;
+}
+
+th {
+  font-family: $header-font;
+  font-size: 1.5rem;
+  padding: 1rem;
+}
+
+tr {
+  border-bottom: 1px solid $dark-blue;
+}
+
+td {
+  padding: 0.5rem 1rem;
+}

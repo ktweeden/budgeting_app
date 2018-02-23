@@ -4,6 +4,7 @@ require_relative '../db/sql_runner'
 class Tag
 
   attr_reader :id, :name
+  attr_accessor :name
 
   def initialize(options)
     @id = options['id'].to_i if options['id']
@@ -25,6 +26,22 @@ class Tag
     values = [@id]
     result = SqlRunner.run(sql, values).first['sum'].to_i
     result/100.0
+  end
+
+  def update
+    sql = "UPDATE tags
+    SET name = $1
+    WHERE id = $2
+    RETURNING *;"
+    values = [@name, @id]
+    result = SqlRunner.run(sql, values).first
+    Tag.new(result)
+  end
+
+  def delete
+    sql = "DELETE FROM tags WHERE id = $1;"
+    values = [@id]
+    SqlRunner.run(sql, values)
   end
 
   def self.find_by_id(id)

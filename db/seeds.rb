@@ -39,7 +39,7 @@ tags = [
 tags.each{|tag| tag.save }
 merchants.each{|merchant| merchant.save }
 
-transations = [
+transactions = [
   Transaction.new({'amount' => 1000, 'merchant_id' => merchants[0].id, 'tag_id' => tags[0].id}),
   Transaction.new({'amount' => 700, 'merchant_id' => merchants[1].id, 'tag_id' => tags[0].id}),
   Transaction.new({'amount' => 685, 'merchant_id' => merchants[2].id, 'tag_id' => tags[1].id}),
@@ -63,7 +63,7 @@ transations = [
   # Transaction.new({'amount' => 750, 'merchant_id' => merchants[6].id, 'tag_id' => tags[4].id}),
 ]
 
-transations.each {|transation| transation.save}
+transactions.each {|transaction| transaction.save}
 
 binding.pry
 
