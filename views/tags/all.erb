@@ -1,0 +1,17 @@
+<section class="transaction-table">
+  <table>
+    <tr>
+      <th>Tag</td>
+      <th>Amount</td>
+    </tr>
+    <% @tags.each do |tag| %>
+    <tr>
+      <td>
+        <a href = "/tags/<%= tag.id %>">
+          <%= tag.name %>
+        </a>
+      </td>
+      <td>£ <%= as_money(tag.total_spent) %></td>
+    </tr>
+    <% end %>
+  </table>

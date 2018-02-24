@@ -18,7 +18,11 @@
           </a>
         </td>
         <td>£ <%= as_money(transaction.amount) %></td>
-        <td><%= Tag.find_by_id(transaction.tag_id).name %></td>
+        <td>
+          <a href = "/tags/<%= transaction.tag_id %>">
+            <%= Tag.find_by_id(transaction.tag_id).name %>
+          </a>
+        </td>
       </tr>
       <% end %>
     </table>

@@ -22,10 +22,9 @@ class Tag
   def total_spent
     sql = "SELECT SUM (amount)
     FROM transactions
-    WHERE id = $1;"
+    WHERE tag_id = $1;"
     values = [@id]
     result = SqlRunner.run(sql, values).first['sum'].to_i
-    result/100.0
   end
 
   def update
@@ -42,6 +41,13 @@ class Tag
     sql = "DELETE FROM tags WHERE id = $1;"
     values = [@id]
     SqlRunner.run(sql, values)
+  end
+
+  def transactions
+    sql = "SELECT * FROM transactions WHERE tag_id = $1"
+    values = [@id]
+    results = SqlRunner.run(sql, values)
+    results.map {|transaction| Transaction.new(transaction)}
   end
 
   def self.find_by_id(id)
