@@ -46,6 +46,12 @@ class Merchant
     results.map {|transaction| Transaction.new(transaction)}
   end
 
+  def total_spent
+    sql = "SELECT SUM (amount) FROM transactions WHERE merchant_id = $1;"
+    values = [@id]
+    SqlRunner.run(sql, values).first['sum'].to_i
+  end
+
   def self.find_by_id(id)
     sql = "SELECT * FROM merchants WHERE id = $1;"
     values = [id]

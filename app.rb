@@ -23,6 +23,11 @@ get '/merchants/:id' do
   erb(:"merchants/merchant")
 end
 
+get '/merchants' do
+  @merchants = Merchant.all
+  erb(:"merchants/all")
+end
+
 post '/add/transaction' do
   transaction = Transaction.new(params)
   transaction.save
