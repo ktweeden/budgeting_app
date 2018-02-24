@@ -55,8 +55,7 @@ class Transaction
 
   def self.total_spent
     sql = "SELECT SUM (amount) FROM transactions;"
-    result = SqlRunner.run(sql).first['sum'].to_i
-    result/100.0
+    SqlRunner.run(sql).first['sum'].to_i
   end
 
 end

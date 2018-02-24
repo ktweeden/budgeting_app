@@ -1,0 +1,15 @@
+<h2 class="summary-title"><%= @merchant.name %></h2>
+<section class="transaction-table">
+  <table>
+    <tr>
+      <th>Amount</td>
+      <th>Tag</td>
+    </tr>
+    <% @transactions.each do |transaction| %>
+    <tr>
+      <td>£ <%= as_money(transaction.amount) %></td>
+      <td><%= Tag.find_by_id(transaction.tag_id).name %></td>
+    </tr>
+    <% end %>
+  </table>
+</section>

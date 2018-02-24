@@ -97,4 +97,8 @@ td {
   flex-direction: row;
   justify-content: center; }
 
+.summary-title {
+  width: 100vw;
+  text-align: center; }
+
 /*# sourceMappingURL=style.css.map */
