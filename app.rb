@@ -1,9 +1,8 @@
 require 'sinatra'
 require 'sinatra/contrib/all'
-require_relative 'models/transaction'
-require_relative 'models/tag'
-require_relative 'models/merchant'
-require_relative 'models/utils'
+require_relative 'contollers/transaction'
+require_relative 'contollers/tag'
+require_relative 'contollers/merchant'
 
 
 get '/' do
