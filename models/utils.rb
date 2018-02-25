@@ -30,3 +30,7 @@ def month_info(month_str)
   }
   result = {'month' => months[month_str][:num], 'length' => months[month_str][:length]}
 end
+
+def is_negative?(number_str)
+  number_str.to_i < 0
+end

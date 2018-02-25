@@ -11,6 +11,7 @@ get '/add/transaction' do
 end
 
 post '/add/transaction' do
+  redirect '/' if is_negative?(params['amount'])
   pennies = to_pennies(params['amount'])
   transaction_hash = {
     'dt' => params['dt'],

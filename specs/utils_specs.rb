@@ -18,4 +18,14 @@ class TestUtils < MiniTest::Test
     result = to_uk_date(Date.new(2001,2,3))
     assert_equal('03-02-2001', result)
   end
+
+  def test_month_info
+    result = month_info('jan')
+    assert_equal({'month' => '01', 'length' => '31'}, result)
+  end
+
+  def test_is_negative?
+    result = is_negative(-5)
+    assert_equal(true, result)
+  end
 end
