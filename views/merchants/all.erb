@@ -11,7 +11,7 @@
           <%= merchant.name %>
         </a>
       </td>
-      <td>£ <%= as_money(merchant.total_spent) %></td>
+      <td>£ <%= to_pounds(merchant.total_spent) %></td>
     </tr>
     <% end %>
   </table>

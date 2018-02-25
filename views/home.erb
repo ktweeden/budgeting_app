@@ -1,6 +1,6 @@
 <main>
   <section class="top-line">
-    <h2>Total Spent: £ <%= as_money(Transaction.total_spent) %></h2>
+    <h2>Total Spent: £ <%= to_pounds(Transaction.total_spent) %></h2>
     <h2><a href="/add/transaction">Add new transaction</a></h2>
   </section>
   <section class="transaction-table">
@@ -17,7 +17,7 @@
             <%= Merchant.find_by_id(transaction.merchant_id).name %>
           </a>
         </td>
-        <td>£ <%= as_money(transaction.amount) %></td>
+        <td>£ <%= to_pounds(transaction.amount) %></td>
         <td>
           <a href = "/tags/<%= transaction.tag_id %>">
             <%= Tag.find_by_id(transaction.tag_id).name %>

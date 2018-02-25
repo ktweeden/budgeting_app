@@ -7,7 +7,7 @@
     </tr>
     <% @transactions.each do |transaction| %>
     <tr>
-      <td>£ <%= as_money(transaction.amount) %></td>
+      <td>£ <%= to_pounds(transaction.amount) %></td>
       <td>
         <a href = "/merchants/<%=transaction.merchant_id%>">
           <%= Merchant.find_by_id(transaction.merchant_id).name %>

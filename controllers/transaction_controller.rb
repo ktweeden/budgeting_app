@@ -11,7 +11,13 @@ get '/add/transaction' do
 end
 
 post '/add/transaction' do
-  transaction = Transaction.new(params)
+  pennies = to_pennies(params['amount'])
+  transaction_hash = {
+    'amount' => pennies,
+    'merchant_id' => params['merchant_id'],
+    'tag_id' => params['tag_id']
+  }
+  transaction = Transaction.new(transaction_hash)
   transaction.save
   redirect '/'
 end
