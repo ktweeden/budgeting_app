@@ -1,4 +1,5 @@
 require_relative '../db/sql_runner'
+require_relative 'utils'
 
 
 class Tag
@@ -44,9 +45,10 @@ class Tag
   end
 
   def transactions
-    sql = "SELECT amount, to_char(dt, 'DD-MM-YYYY') AS dt, merchant_id, tag_id
+    sql = "SELECT *
     FROM transactions
-    WHERE tag_id = $1"
+    WHERE tag_id = $1
+    ORDER BY dt ASC;"
     values = [@id]
     results = SqlRunner.run(sql, values)
     results.map {|transaction| Transaction.new(transaction)}
