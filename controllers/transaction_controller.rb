@@ -12,6 +12,7 @@ end
 
 post '/add/transaction' do
   redirect '/' if is_negative?(params['amount'])
+  redirect '/' if Time.parse(params['dt']) > Time.now
   pennies = to_pennies(params['amount'])
   transaction_hash = {
     'dt' => params['dt'],
