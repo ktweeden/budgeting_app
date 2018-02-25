@@ -44,7 +44,9 @@ class Tag
   end
 
   def transactions
-    sql = "SELECT * FROM transactions WHERE tag_id = $1"
+    sql = "SELECT amount, to_char(dt, 'DD-MM-YYYY') AS dt, merchant_id, tag_id
+    FROM transactions
+    WHERE tag_id = $1"
     values = [@id]
     results = SqlRunner.run(sql, values)
     results.map {|transaction| Transaction.new(transaction)}

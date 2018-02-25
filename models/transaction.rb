@@ -49,7 +49,8 @@ class Transaction
   end
 
   def self.all
-    sql = "SELECT * FROM transactions;"
+    sql = "SELECT amount, to_char(dt, 'DD-MM-YYYY') AS dt, merchant_id, tag_id
+    FROM transactions;"
     results = SqlRunner.run(sql)
     results.map {|transaction| Transaction.new(transaction)}
   end
