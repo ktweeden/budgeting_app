@@ -14,7 +14,7 @@
       </tr>
       <% @transactions.each do |transaction| %>
       <tr>
-        <td><%=transaction.date%></td>
+        <td><%=to_uk_date(transaction.date)%></td>
         <td>
           <a href = "/merchants/<%= transaction.merchant_id %>">
             <%= Merchant.find_by_id(transaction.merchant_id).name %>

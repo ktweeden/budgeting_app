@@ -13,6 +13,7 @@ end
 post '/add/transaction' do
   pennies = to_pennies(params['amount'])
   transaction_hash = {
+    'dt' => params['dt'],
     'amount' => pennies,
     'merchant_id' => params['merchant_id'],
     'tag_id' => params['tag_id']

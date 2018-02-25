@@ -8,7 +8,7 @@ class Transaction
 
   def initialize(options)
     @id = options['id'].to_i if options['id']
-    @date = options['dt']
+    @date = Date.parse(options['dt'])
     @amount = options['amount'].to_i
     @merchant_id = options['merchant_id'].to_i
     @tag_id = options['tag_id'].to_i
