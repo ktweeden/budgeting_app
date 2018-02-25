@@ -2,11 +2,13 @@
 <section class="transaction-table">
   <table>
     <tr>
-      <th>Amount</td>
-      <th>Merchant</td>
+      <th>Date</th>
+      <th>Amount</th>
+      <th>Merchant</th>
     </tr>
     <% @transactions.each do |transaction| %>
     <tr>
+      <td><%= transaction.date%></td>
       <td>£ <%= to_pounds(transaction.amount) %></td>
       <td>
         <a href = "/merchants/<%=transaction.merchant_id%>">

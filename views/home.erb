@@ -7,12 +7,14 @@
   <section class="transaction-table">
     <table>
       <tr>
-        <th>Merchant</td>
-        <th>Amount</td>
-        <th>Tag</td>
+        <th>Date</th>
+        <th>Merchant</th>
+        <th>Amount</th>
+        <th>Tag</th>
       </tr>
       <% @transactions.each do |transaction| %>
       <tr>
+        <td><%=transaction.date%></td>
         <td>
           <a href = "/merchants/<%= transaction.merchant_id %>">
             <%= Merchant.find_by_id(transaction.merchant_id).name %>
