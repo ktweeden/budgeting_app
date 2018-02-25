@@ -8,7 +8,7 @@
     </tr>
     <% @transactions.each do |transaction| %>
     <tr>
-      <td><%= transaction.date.to_date%></td>
+      <td><%= transaction.date%></td>
       <td>£ <%= to_pounds(transaction.amount) %></td>
       <td>
         <a href = "/merchants/<%=transaction.merchant_id%>">
