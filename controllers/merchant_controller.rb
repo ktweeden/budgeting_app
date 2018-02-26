@@ -20,7 +20,8 @@ get '/add/merchant' do
 end
 
 post '/add/merchant' do
-  merchant = Merchant.new(params)
+  sanitised_name = params['name'].downcase.capitalize
+  merchant = Merchant.new({'name' => sanitised_name})
   merchant.save
   redirect '/merchants'
 end
