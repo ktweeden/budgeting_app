@@ -3,7 +3,8 @@ require_relative 'utils'
 
 class Budget
 
-  attr_reader :id, :amount, :tag_id
+  attr_reader :id, :tag_id
+  attr_accessor :amount
 
   def initialize(options)
     @id = options['id'].to_i if options['id']
@@ -23,12 +24,9 @@ class Budget
 
   def update
     sql = "UPDATE budgets
-    SET (
-      amount, tag_id
-    )=(
-      $1, $2
-    )
-    WHERE id = $3;"
+    SET ( amount, tag_id )=($1, $2)
+    WHERE id = $3
+    RETURNING * ;"
     values = [@amount, @tag_id, @id]
     result = SqlRunner.run(sql, values).first
     Budget.new(result)
@@ -38,6 +36,20 @@ class Budget
     sql = "DELETE FROM budgets WHERE id = $1;"
     values = [@id]
     SqlRunner.run(sql, values)
+  end
+
+  def self.find_by_id(id)
+    sql = "SELECT * FROM budgets WHERE id = $1";
+    values = [id]
+    result = SqlRunner.run(sql, values).first
+    Budget.new(result)
+  end
+
+  def self.find_by_tag_id(tag_id)
+    sql = "SELECT * FROM budgets WHERE tag_id = $1";
+    values = [tag_id]
+    result = SqlRunner.run(sql, values).first
+    Budget.new(result)
   end
 
   def self.all
