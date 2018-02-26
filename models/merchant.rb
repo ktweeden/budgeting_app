@@ -60,20 +60,20 @@ class Merchant
     sql = "SELECT * FROM merchants WHERE id = $1;"
     values = [id]
     result = SqlRunner.run(sql, values).first
-    Merchant.new(result)
+    return Merchant.new(result) if result != nil
   end
 
   def self.find_by_name(name)
     sql = "SELECT * FROM merchants WHERE name = $1;"
     values = [name]
     result = SqlRunner.run(sql, values).first
-    Merchant.new(result)
+    return Merchant.new(result) if result != nil
   end
 
   def self.all
     sql = "
     SELECT merchants.name, merchants.id FROM merchants
-    INNER JOIN transactions ON transactions.merchant_id = merchants.id
+    LEFT JOIN transactions ON transactions.merchant_id = merchants.id
     GROUP BY merchants.id
     ORDER BY SUM (transactions.amount) DESC;"
     results = SqlRunner.run(sql)
