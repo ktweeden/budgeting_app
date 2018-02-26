@@ -1,6 +1,9 @@
 <main>
   <h2 class="summary-title">Budgets</h2>
   <h3>Monthly Budget: <%=@main.amount%></h3>
+  <a href="/budgets/update/<%= @main.id %>">
+    Edit
+  </a>
   <section class="transaction-table">
     <table>
       <tr>
