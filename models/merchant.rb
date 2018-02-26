@@ -44,7 +44,7 @@ class Merchant
     sql = "SELECT *
     FROM transactions
     WHERE merchant_id = $1
-    ORDER BY dt ASC;"
+    ORDER BY dt DESC;"
     values = [@id]
     results = SqlRunner.run(sql, values)
     results.map {|transaction| Transaction.new(transaction)}
