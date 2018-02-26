@@ -62,7 +62,12 @@ class Tag
   end
 
   def self.all
-    sql = "SELECT * FROM tags"
+    sql = "
+    SELECT tags.name, tags.id FROM tags
+    INNER JOIN transactions ON transactions.tag_id = tags.id
+    GROUP BY tags.id
+    ORDER BY SUM (transactions.amount) DESC;
+    "
     results = SqlRunner.run(sql)
     results.map {|tag| Tag.new(tag)}
   end

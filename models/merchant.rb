@@ -64,7 +64,11 @@ class Merchant
   end
 
   def self.all
-    sql = "SELECT * FROM merchants";
+    sql = "
+    SELECT merchants.name, merchants.id FROM merchants
+    INNER JOIN transactions ON transactions.merchant_id = merchants.id
+    GROUP BY merchants.id
+    ORDER BY SUM (transactions.amount) DESC;"
     results = SqlRunner.run(sql)
     results.map {|merchant| Merchant.new(merchant)}
   end
