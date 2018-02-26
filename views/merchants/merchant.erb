@@ -1,20 +1,22 @@
-<h2 class="summary-title"><%= @merchant.name %></h2>
-<section class="transaction-table">
-  <table>
-    <tr>
-      <th>Date</th>
-      <th>Amount</th>
-      <th>Tag</th>
-    </tr>
-    <% @transactions.each do |transaction| %>
-    <tr>
-      <td><%= to_uk_date(transaction.date) %></td>
-      <td>£ <%= to_pounds(transaction.amount) %></td>
-      <td>
-        <a href ="/tags/<%= transaction.tag_id %>">
-        <%= Tag.find_by_id(transaction.tag_id).name %>
-      </td>
-    </tr>
-    <% end %>
-  </table>
-</section>
+<main>
+  <h2 class="summary-title"><%= @merchant.name %></h2>
+  <section class="transaction-table">
+    <table>
+      <tr>
+        <th>Date</th>
+        <th>Amount</th>
+        <th>Tag</th>
+      </tr>
+      <% @transactions.each do |transaction| %>
+      <tr>
+        <td><%= to_uk_date(transaction.date) %></td>
+        <td>£ <%= to_pounds(transaction.amount) %></td>
+        <td>
+          <a href ="/tags/<%= transaction.tag_id %>">
+          <%= Tag.find_by_id(transaction.tag_id).name %>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </section>
+</main>

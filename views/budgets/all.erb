@@ -1,0 +1,21 @@
+<main>
+  <h2 class="summary-title">Budgets</h2>
+  <h3>Monthly Budget: <%=@main.amount%></h3>
+  <section class="transaction-table">
+    <table>
+      <tr>
+        <th>Amount</th>
+        <th>Tag</th>
+      </tr>
+      <% @tag_budgets.each do |budget| %>
+      <tr>
+        <td>£ <%= to_pounds(budget.amount) %></td>
+        <td>
+          <a href ="/tags/<%= budget.tag_id %>">
+          <%= Tag.find_by_id(budget.tag_id).name %>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </section>
+</main>

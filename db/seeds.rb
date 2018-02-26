@@ -4,7 +4,7 @@ require_relative '../models/merchant'
 require_relative '../models/tag'
 require_relative '../models/transaction'
 require_relative '../models/utils'
-
+require_relative '../models/budget'
 
 merchants = [
   Merchant.new({'name' => 'Tesco'}),
@@ -65,6 +65,16 @@ transactions = [
 ]
 
 transactions.each {|transaction| transaction.save}
+
+budgets = [
+  Budget.new({'amount' => 100000}),
+  Budget.new({'amount' => 40000, 'tag_id' => tags[0].id}),
+  Budget.new({'amount' => 5000, 'tag_id' => tags[1].id}),
+  Budget.new({'amount' => 10000, 'tag_id' => tags[3].id}),
+  Budget.new({'amount' => 7500, 'tag_id' => tags[5].id})
+]
+
+budgets.each {|budget| budget.save}
 
 binding.pry
 

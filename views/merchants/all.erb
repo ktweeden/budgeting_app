@@ -1,17 +1,20 @@
-<section class="transaction-table">
-  <table>
-    <tr>
-      <th>Merchant</td>
-      <th>Amount</td>
-    </tr>
-    <% @merchants.each do |merchant| %>
-    <tr>
-      <td>
-        <a href = "/merchants/<%= merchant.id %>">
-          <%= merchant.name %>
-        </a>
-      </td>
-      <td>£ <%= to_pounds(merchant.total_spent) %></td>
-    </tr>
-    <% end %>
-  </table>
+<main>
+  <section class="transaction-table">
+    <table>
+      <tr>
+        <th>Merchant</td>
+        <th>Amount</td>
+      </tr>
+      <% @merchants.each do |merchant| %>
+      <tr>
+        <td>
+          <a href = "/merchants/<%= merchant.id %>">
+            <%= merchant.name %>
+          </a>
+        </td>
+        <td>£ <%= to_pounds(merchant.total_spent) %></td>
+      </tr>
+      <% end %>
+    </table>
+  </section>
+</main>

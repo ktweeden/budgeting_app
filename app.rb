@@ -4,6 +4,7 @@ require_relative 'controllers/transaction_controller'
 require_relative 'controllers/tag_controller'
 require_relative 'controllers/merchant_controller'
 require_relative 'controllers/analytic_controller'
+require_relative 'controllers/budget_controller'
 
 
 get '/' do
