@@ -1,0 +1,13 @@
+<main>
+  <form action="/budgets/add" method="post">
+    <label for="amount">Amount:</label>
+    <input type="number" name="amount">
+    <label for="tag">Tag:</label>
+    <select name="tag_id">
+      <% @tags.each do |tag| %>
+        <option value="<%=tag.id%>"><%=tag.name%></option>
+      <% end %>
+    </select>
+    <input type="submit" value="Add Budget">
+  </form>
+</main>

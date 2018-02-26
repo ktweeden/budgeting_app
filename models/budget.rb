@@ -39,17 +39,17 @@ class Budget
   end
 
   def self.find_by_id(id)
-    sql = "SELECT * FROM budgets WHERE id = $1";
+    sql = "SELECT * FROM budgets WHERE id = $1;"
     values = [id]
     result = SqlRunner.run(sql, values).first
     Budget.new(result)
   end
 
   def self.find_by_tag_id(tag_id)
-    sql = "SELECT * FROM budgets WHERE tag_id = $1";
+    sql = "SELECT * FROM budgets WHERE tag_id = $1;"
     values = [tag_id]
     result = SqlRunner.run(sql, values).first
-    Budget.new(result)
+    return Budget.new(result) if result != nil
   end
 
   def self.all

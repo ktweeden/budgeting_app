@@ -3,6 +3,7 @@ require_relative '../models/tag'
 require_relative '../models/merchant'
 require_relative '../models/utils'
 require_relative '../models/budget'
+require 'pry'
 
 
 get '/budgets' do
@@ -21,5 +22,22 @@ post '/budgets/update/:id' do
   params['amount'] = to_pennies(params['amount'])
   new_budget = Budget.new(params)
   new_budget.update
+  redirect '/budgets'
+end
+
+get '/budgets/add' do
+  @tags = Tag.all
+  erb(:"budgets/add")
+end
+
+post '/budgets/add' do
+  redirect '/' if Budget.find_by_tag_id(params['tag_id'].to_i) != nil
+  # params['amount'] = to_pennies(params['amount'])
+  budget_hash = {
+    'amount' => to_pennies(params['amount']),
+    'tag_id' => params['tag_id']
+  }
+  new_budget = Budget.new(budget_hash)
+  new_budget.save
   redirect '/budgets'
 end
