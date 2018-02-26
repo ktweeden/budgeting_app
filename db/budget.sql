@@ -20,3 +20,6 @@ CREATE TABLE transactions (
   merchant_id INT4 REFERENCES merchants ON DELETE CASCADE,
   tag_id INT4 REFERENCES tags ON DELETE CASCADE
 );
+
+CREATE INDEX indx_dates ON transactions (dt);
+CREATE INDEX indx_dates_with_tags ON transactions (dt, tag_id);
