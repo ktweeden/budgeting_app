@@ -13,8 +13,8 @@ get '/' do
   erb(:home)
 end
 
-get '/analytics/:month/:year' do
-  @transactions = Transaction.by_month(params['month'], params['year'])
-  @month = "#{params['month']}, #{params['year']}"
-  erb(:"analytics/month")
-end
+# get '/analytics/:month/:year' do
+#   @transactions = Transaction.by_month(params['month'], params['year'])
+#   @month = "#{params['month']}, #{params['year']}"
+#   erb(:"analytics/month")
+# end

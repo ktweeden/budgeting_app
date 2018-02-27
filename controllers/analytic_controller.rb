@@ -4,9 +4,11 @@ require_relative '../models/merchant'
 require_relative '../models/utils'
 require_relative '../models/budget'
 
-get '/analytics/[:month]/[:year]' do
+get '/analytics/:month/:year' do
+  date = Date.parse("#{params['month']}/#{params['year']}")
   @transactions = Transaction.by_month(params['month'], params['year'])
   @month = "#{params['month']}, #{params['year']}"
+  @amount = Transaction.total_spent_by_month(date.strftime("%m"))
   erb(:"analytics/month")
 end
 

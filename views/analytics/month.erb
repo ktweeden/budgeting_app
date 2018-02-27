@@ -1,5 +1,5 @@
 <main>
-  <h2 class="summary-title"><%=@month%></h2>
+  <h2 class="summary-title">Total spent in <%= @month%>: £ <%= to_pounds(@amount) %></h2>
   <section class="transaction-table">
     <table>
       <tr>
