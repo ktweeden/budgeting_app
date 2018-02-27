@@ -53,6 +53,13 @@ class Tag
     SqlRunner.run(sql, values)
   end
 
+  def budget
+    sql = "SELECT * FROM budgets WHERE tag_id = $1;"
+    values = [@id]
+    result = SqlRunner.run(sql, values).first
+    Budget.new(result) if result != nil
+  end
+
   def transactions
     sql = "SELECT *
     FROM transactions

@@ -1,5 +1,9 @@
 <main>
   <h2 class="summary-title"><%= @tag.name %></h2>
+  <% if @budget != nil%>
+    <h3>Monthly budget for <%= @tag.name %> is £ <%=to_pounds(@budget.amount)%></h3>
+    <a href = "/budget/update/<%= @budget.id%>">Edit</a>
+  <% end %>
   <section class="transaction-table">
     <table>
       <tr>

@@ -8,6 +8,7 @@ require_relative '../models/budget'
 get '/tags/:id' do
   @tag = Tag.find_by_id(params['id'])
   @transactions = @tag.transactions
+  @budget = @tag.budget
   erb(:"tags/tag")
 end
 
