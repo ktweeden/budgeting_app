@@ -1,0 +1,20 @@
+<main>
+  <h2>Spending towards budgets this month</h2>
+  <h3>Main budget: £ <%= to_pounds(@main_budget['spent'])%> of £ <%= to_pounds(@main_budget['amount'])%> spent</h3>
+  <table>
+    <tr>
+      <th>Tag</th>
+      <th>Budget</th>
+      <th>Amount spent</th>
+      <th>Amount remaining</th>
+    </tr>
+    <% @tag_budgets.each do |budget| %>
+    <tr>
+      <td><%= budget['tag'] %></td>
+      <td>£ <%= to_pounds(budget['amount']) %></td>
+      <td>£ <%= to_pounds(budget['spent']) %></td>
+      <td>£ <%= to_pounds(budget['remaining'])%></td>
+    </tr>
+    <% end %>
+  </table>
+</main>

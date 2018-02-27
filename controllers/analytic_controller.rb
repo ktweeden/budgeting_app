@@ -9,3 +9,9 @@ get '/analytics/[:month]/[:year]' do
   @month = "#{params['month']}, #{params['year']}"
   erb(:"analytics/month")
 end
+
+get '/analytics/budgets' do
+  @main_budget = Budget.main_budget.info
+  @tag_budgets = Budget.all_tag_budgets.map {|budget| budget.info}
+  erb(:"analytics/budgets")
+end

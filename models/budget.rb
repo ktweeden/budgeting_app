@@ -38,6 +38,24 @@ class Budget
     SqlRunner.run(sql, values)
   end
 
+  def info
+    budget_hash = {
+      'amount' => @amount,
+      'spent' => total_spent,
+      'remaining' => @amount - total_spent
+    }
+    budget_hash['tag'] = Tag.find_by_id(@tag_id).name if @tag_id
+    budget_hash
+  end
+
+  def total_spent
+    if @tag_id
+      Tag.find_by_id(@tag_id).total_spent
+    else
+      Transaction.total_spent
+    end
+  end
+
   def self.find_by_id(id)
     sql = "SELECT * FROM budgets WHERE id = $1;"
     values = [id]
