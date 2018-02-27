@@ -1,0 +1,7 @@
+<main>
+  <form action="/budgets/update/<%=@budget.id%>" method="post">
+    <label for="amount">Amount:</label>
+    <input type="number" name="amount" value="<%= to_pounds(@budget.amount)%>"/>
+    <input type="submit" value="Update Budget" />
+  </form>
+</main>

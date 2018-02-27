@@ -12,11 +12,17 @@ get '/budgets' do
   erb(:"budgets/all")
 end
 
+get '/budgets/update/main' do
+  @budget = Budget.main_budget
+  erb(:"budgets/update_main")
+end
+
 get '/budgets/update/:id' do
   @budget = Budget.find_by_id(params['id'])
   @tags = Tag.all
   erb(:"budgets/update")
 end
+
 
 post '/budgets/update/:id' do
   params['amount'] = to_pennies(params['amount'])
