@@ -13,7 +13,7 @@
         <td>£ <%= to_pounds(transaction.amount) %></td>
         <td>
           <a href = "/merchants/<%=transaction.merchant_id%>">
-            <%= Merchant.find_by_id(transaction.merchant_id).name %>
+            <%= transaction.merchant.name %>
           </a>
         </td>
       </tr>

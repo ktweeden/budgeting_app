@@ -21,11 +21,7 @@ get '/add/merchant' do
 end
 
 post '/add/merchant' do
-  sanitised_name_array = params['name'].downcase.split(" ")
-  sanitised_name_array = sanitised_name_array.map do |word|
-    word != "and" ? word.capitalize : word
-  end
-  sanitised_name = sanitised_name_array.join(" ")
+  sanitized_name = sanitize(params['name'])
   redirect '/merchants' if Merchant.find_by_name(sanitised_name) != nil
   merchant = Merchant.new({'name' => sanitised_name})
   merchant.save

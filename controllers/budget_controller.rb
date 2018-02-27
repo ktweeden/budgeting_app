@@ -48,6 +48,5 @@ post '/budgets/add' do
      new_budget.save
      redirect '/budgets'
    end
-  # params['amount'] = to_pennies(params['amount'])
 
 end

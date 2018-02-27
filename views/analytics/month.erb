@@ -13,13 +13,13 @@
         <td><%=to_uk_date(transaction.date)%></td>
         <td>
           <a href = "/merchants/<%= transaction.merchant_id %>">
-            <%= Merchant.find_by_id(transaction.merchant_id).name %>
+            <%= transaction.merchant.name %>
           </a>
         </td>
         <td>£ <%= to_pounds(transaction.amount) %></td>
         <td>
           <a href = "/tags/<%= transaction.tag_id %>">
-            <%= Tag.find_by_id(transaction.tag_id).name %>
+            <%= transaction.tag.name %>
           </a>
         </td>
       </tr>

@@ -38,6 +38,13 @@ class Budget
     SqlRunner.run(sql, values)
   end
 
+  def tag
+    sql = "SELECT * FROM tags WHERE id = $1;"
+    values = [@tag_id]
+    result = SqlRunner.run(sql, values).first
+    Tag.new(result)
+  end
+
   def month_spending_info(month, year)
     budget_hash = {
       'amount' => @amount,

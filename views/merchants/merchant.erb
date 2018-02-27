@@ -13,7 +13,7 @@
         <td>£ <%= to_pounds(transaction.amount) %></td>
         <td>
           <a href ="/tags/<%= transaction.tag_id %>">
-          <%= Tag.find_by_id(transaction.tag_id).name %>
+          <%= transaction.tag.name %>
         </td>
       </tr>
       <% end %>

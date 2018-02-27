@@ -16,3 +16,10 @@ end
 def is_negative?(number_str)
   number_str.to_i < 0
 end
+
+def sanitize(name)
+  sanitised_name_array = name.downcase.split(" ").map do |word|
+    word != "and" ? word.capitalize : word
+  end
+  sanitised_name_array.join(" ")
+end
