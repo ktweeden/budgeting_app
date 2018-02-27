@@ -28,11 +28,12 @@ class Tag
     result = SqlRunner.run(sql, values).first['sum'].to_i
   end
 
-  def total_spent_by_month(month)
+  def total_spent_by_month(month, year)
     sql = "SELECT SUM (amount)
     FROM transactions
-    WHERE (EXTRACT (MONTH FROM dt), tag_id) = ($1, $2);"
-    values = [month, @id]
+    WHERE (EXTRACT (MONTH FROM dt), EXTRACT (YEAR FROM dt), tag_id)
+    = ($1, $2, $3);"
+    values = [month, year, @id]
     result = SqlRunner.run(sql, values).first['sum'].to_i
   end
 

@@ -62,10 +62,10 @@ class Transaction
     SqlRunner.run(sql).first['sum'].to_i
   end
 
-  def self.total_spent_by_month(month)
+  def self.total_spent_by_month(month, year)
     sql = "SELECT SUM (amount) FROM transactions
-    WHERE EXTRACT(MONTH FROM dt) = $1;"
-    values = [month]
+    WHERE (EXTRACT(MONTH FROM dt), EXTRACT (YEAR FROM dt)) = ($1, $2);"
+    values = [month, year]
     SqlRunner.run(sql, values).first['sum'].to_i
   end
 

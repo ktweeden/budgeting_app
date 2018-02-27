@@ -7,13 +7,15 @@ require_relative '../models/budget'
 get '/analytics/:month/:year' do
   date = Date.parse("#{params['month']}/#{params['year']}")
   @transactions = Transaction.by_month(date)
-  @month = date.strftime('%b, %Y')
-  @amount = Transaction.total_spent_by_month(date.strftime("%m"))
+  @month = date.strftime('%B %Y')
+  @amount = Transaction.total_spent_by_month(date.strftime("%m"), date.strftime("%Y"))
   erb(:"analytics/month")
 end
 
 get '/analytics/budgets' do
-  @main_budget = Budget.main_budget.month_spending_info(Date.today.strftime("%m"))
-  @tag_budgets = Budget.all_tag_budgets.map {|budget| budget.month_spending_info(Date.today.strftime("%m"))}
+  month = Date.today.strftime("%m")
+  year = Date.today.strftime("%Y")
+  @main_budget = Budget.main_budget.month_spending_info(month, year)
+  @tag_budgets = Budget.all_tag_budgets.map {|budget| budget.month_spending_info(month, year)}
   erb(:"analytics/budgets")
 end

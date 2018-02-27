@@ -38,21 +38,21 @@ class Budget
     SqlRunner.run(sql, values)
   end
 
-  def month_spending_info(month)
+  def month_spending_info(month, year)
     budget_hash = {
       'amount' => @amount,
-      'spent' => total_spent_by_month(month),
-      'remaining' => @amount - total_spent_by_month(month)
+      'spent' => total_spent_by_month(month, year),
+      'remaining' => @amount - total_spent_by_month(month, year)
     }
     budget_hash['tag'] = Tag.find_by_id(@tag_id).name if @tag_id
     budget_hash
   end
 
-  def total_spent_by_month(month)
+  def total_spent_by_month(month, year)
     if @tag_id
-      Tag.find_by_id(@tag_id).total_spent_by_month(month)
+      Tag.find_by_id(@tag_id).total_spent_by_month(month, year)
     else
-      Transaction.total_spent_by_month(month)
+      Transaction.total_spent_by_month(month, year)
     end
   end
 

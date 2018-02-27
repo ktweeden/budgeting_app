@@ -23,11 +23,7 @@ end
 post '/add/merchant' do
   sanitised_name_array = params['name'].downcase.split(" ")
   sanitised_name_array = sanitised_name_array.map do |word|
-    if word != "and"
-      word.capitalize
-    else
-      word
-    end
+    word != "and" ? word.capitalize : word
   end
   sanitised_name = sanitised_name_array.join(" ")
   redirect '/merchants' if Merchant.find_by_name(sanitised_name) != nil
