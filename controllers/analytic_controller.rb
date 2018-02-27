@@ -11,7 +11,7 @@ get '/analytics/[:month]/[:year]' do
 end
 
 get '/analytics/budgets' do
-  @main_budget = Budget.main_budget.info
-  @tag_budgets = Budget.all_tag_budgets.map {|budget| budget.info}
+  @main_budget = Budget.main_budget.month_spending_info(Date.today.strftime("%m"))
+  @tag_budgets = Budget.all_tag_budgets.map {|budget| budget.month_spending_info(Date.today.strftime("%m"))}
   erb(:"analytics/budgets")
 end

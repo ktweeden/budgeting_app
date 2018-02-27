@@ -62,6 +62,13 @@ class Transaction
     SqlRunner.run(sql).first['sum'].to_i
   end
 
+  def self.total_spent_by_month(month)
+    sql = "SELECT SUM (amount) FROM transactions
+    WHERE EXTRACT(MONTH FROM dt) = $1;"
+    values = [month]
+    SqlRunner.run(sql, values).first['sum'].to_i
+  end
+
   def self.by_month(month, year)
     sql = "SELECT * FROM transactions
     WHERE dt BETWEEN $1 AND $2

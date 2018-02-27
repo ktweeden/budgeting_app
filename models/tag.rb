@@ -28,6 +28,14 @@ class Tag
     result = SqlRunner.run(sql, values).first['sum'].to_i
   end
 
+  def total_spent_by_month(month)
+    sql = "SELECT SUM (amount)
+    FROM transactions
+    WHERE (EXTRACT (MONTH FROM dt), tag_id) = ($1, $2);"
+    values = [month, @id]
+    result = SqlRunner.run(sql, values).first['sum'].to_i
+  end
+
   def update
     sql = "UPDATE tags
     SET name = $1
