@@ -12,9 +12,3 @@ get '/' do
   @transactions = Transaction.all
   erb(:home)
 end
-
-# get '/analytics/:month/:year' do
-#   @transactions = Transaction.by_month(params['month'], params['year'])
-#   @month = "#{params['month']}, #{params['year']}"
-#   erb(:"analytics/month")
-# end

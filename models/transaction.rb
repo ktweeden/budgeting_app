@@ -69,13 +69,11 @@ class Transaction
     SqlRunner.run(sql, values).first['sum'].to_i
   end
 
-  def self.by_month(month, year)
+  def self.by_month(date)
     sql = "SELECT * FROM transactions
     WHERE dt BETWEEN $1 AND $2
     ORDER BY dt DESC;"
-    first_date = "#{year}-#{month_info(month)['month']}-01"
-    second_date = "#{year}-#{month_info(month)['month']}-#{month_info(month)['length']}"
-    values = [first_date, second_date]
+    values = [date, (date >> 1) - 1]
     results = SqlRunner.run(sql, values)
     results.map {|transaction| Transaction.new(transaction)}
   end
