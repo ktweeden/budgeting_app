@@ -1,6 +1,6 @@
 <main>
   <section class="top-line">
-    <h2>Total Spent: £ <%= to_pounds(Transaction.total_spent) %></h2>
+    <h2>Total Spent: &pound; <%= to_pounds(Transaction.total_spent) %></h2>
     <h2><a href="/add/transaction">Add new transaction</a></h2>
     <h2><a href="/add/merchant">Add new merchant</a></h2>
     <h2><a href="/budgets/add">Add new budget</a></h2>
@@ -21,7 +21,7 @@
             <%= transaction.merchant.name %>
           </a>
         </td>
-        <td>£ <%= to_pounds(transaction.amount) %></td>
+        <td>&pound; <%= to_pounds(transaction.amount) %></td>
         <td>
           <a href = "/tags/<%= transaction.tag_id %>">
             <%= transaction.tag.name %>

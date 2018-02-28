@@ -1,0 +1,82 @@
+<h1 class="main-title"><%=Date.today.strftime("%B %Y")%></h1>
+<main class="dashboard">
+  <div class="main-budget">
+    <div class="spending-progress large-progress-bar">
+      <div class="spent" style="width:<%=@main_budget['percentage']%>%">
+        <%=@main_budget['percentage']%>&#37;
+      </div>
+    </div>
+    <p class="spending-progress-info">&pound; <%=to_pounds(@main_budget['spent'])%> of &pound;<%=to_pounds(@main_budget['amount'])%> spent</p>
+  </div>
+  <ul class="budgets">
+    <h3>Category budgets</h3>
+    <% @tag_budgets.each do |budget|%>
+      <li>
+        <%= budget['tag'] %>
+        <div class="spending-progress standard-progress-bar">
+          <div class="spent" style="width:<%=budget['percentage']%>%">
+            <%=budget['percentage']%>&#37;
+          </div>
+        </div>
+        <p class="spending-progress-info">&pound; <%=to_pounds(budget['spent'])%> of &pound;<%=to_pounds(budget['amount'])%> spent</p>
+      </li>
+    <% end %>
+    <a class="btn" href="/budgets/add">Add a budget </a>
+    <a class="large-btn" href = "/">Year overview</a>
+  </ul>
+  <div class="recent-transactions right-column">
+    <a class="large-btn" href = "/add/transaction">Add a transaction</a>
+    <table>
+      <h3>Recent Transactions</h3>
+      <% @transactions.each do |transaction| %>
+      <tr>
+        <td class = "date"><%=to_uk_date(transaction.date)%></td>
+        <td class = "merchant">
+          <a href = "/merchants/<%= transaction.merchant_id %>">
+            <%= transaction.merchant.name %>
+          </a>
+        </td>
+        <td class = "amount">&pound; <%= to_pounds(transaction.amount) %></td>
+        <td class = "tag">
+          <a href = "/tags/<%= transaction.tag_id %>">
+            <%= transaction.tag.name %>
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+    <a class="btn" href="/">All transactions</a>
+  </div>
+  <div class="most-spent categories right-column">
+    <h3>Categories with highest spend this month</h3>
+    <table>
+      <% @tags.each do |tag| %>
+      <tr>
+        <td>
+          <a href = "/tags/<%= tag.id %>">
+            <%= tag.name %>
+          </a>
+        </td>
+        <td>&pound; <%= to_pounds(tag.total_spent) %></td>
+      </tr>
+      <% end %>
+    </table>
+    <a class="btn" href="/tags">All categories</a>
+  </div>
+  <div class="most-spent merchants right-column">
+    <h3>Merchants with highest spend this month</h3>
+    <table>
+      <% @merchants.each do |merchant| %>
+      <tr>
+        <td>
+          <a href = "/merchants/<%= merchant.id %>">
+            <%= merchant.name %>
+          </a>
+        </td>
+        <td>&pound; <%= to_pounds(merchant.total_spent) %></td>
+      </tr>
+      <% end %>
+    </table>
+    <a class="btn" href="/merchants">All merchants</a>
+  </div>
+</main>

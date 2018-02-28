@@ -1,7 +1,7 @@
 <main>
   <h2 class="summary-title"><%= @tag.name %></h2>
   <% if @budget != nil%>
-    <h3>Monthly budget for <%= @tag.name %> is £ <%=to_pounds(@budget.amount)%></h3>
+    <h3>Monthly budget for <%= @tag.name %> is &pound; <%=to_pounds(@budget.amount)%></h3>
     <a href = "/budget/update/<%= @budget.id%>">Edit</a>
   <% end %>
   <section class="transaction-table">
@@ -14,7 +14,7 @@
       <% @transactions.each do |transaction| %>
       <tr>
         <td><%= to_uk_date(transaction.date)%></td>
-        <td>£ <%= to_pounds(transaction.amount) %></td>
+        <td>&pound; <%= to_pounds(transaction.amount) %></td>
         <td>
           <a href = "/merchants/<%=transaction.merchant_id%>">
             <%= transaction.merchant.name %>

@@ -1,6 +1,6 @@
 <main>
   <h2 class="summary-title">Budgets</h2>
-  <h3>Monthly Budget: £<%=to_pounds(@main.amount)%></h3>
+  <h3>Monthly Budget: &pound;<%=to_pounds(@main.amount)%></h3>
   <a href="/budgets/update/main">
     Edit
   </a>
@@ -12,7 +12,7 @@
       </tr>
       <% @tag_budgets.each do |budget| %>
       <tr>
-        <td>£ <%= to_pounds(budget.amount) %></td>
+        <td>&pound; <%= to_pounds(budget.amount) %></td>
         <td>
           <a href ="/tags/<%= budget.tag_id %>">
           <%= budget.tag.name %>

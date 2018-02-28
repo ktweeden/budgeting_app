@@ -19,3 +19,14 @@ get '/analytics/budgets' do
   @tag_budgets = Budget.all_tag_budgets.map {|budget| budget.month_spending_info(month, year)}
   erb(:"analytics/budgets")
 end
+
+get '/analytics/dashboard' do
+  @month = Date.today.strftime("%m")
+  @year = Date.today.strftime("%Y")
+  @main_budget = Budget.main_budget.month_spending_info(@month, @year)
+  @tag_budgets = Budget.all_tag_budgets.map {|budget| budget.month_spending_info(@month, @year)}
+  @transactions = Transaction.all.first(5)
+  @tags = Tag.all.first(3)
+  @merchants = Merchant.all.first(3)
+  erb(:"analytics/dashboard")
+end

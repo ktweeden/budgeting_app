@@ -1,5 +1,5 @@
 <main>
-  <h2 class="summary-title">Total spent in <%= @month%>: £ <%= to_pounds(@amount) %></h2>
+  <h2 class="summary-title">Total spent in <%= @month%>: &pound; <%= to_pounds(@amount) %></h2>
   <section class="transaction-table">
     <table>
       <tr>
@@ -16,7 +16,7 @@
             <%= transaction.merchant.name %>
           </a>
         </td>
-        <td>£ <%= to_pounds(transaction.amount) %></td>
+        <td>&pound; <%= to_pounds(transaction.amount) %></td>
         <td>
           <a href = "/tags/<%= transaction.tag_id %>">
             <%= transaction.tag.name %>

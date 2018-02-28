@@ -1,0 +1,169 @@
+.dashboard {
+  padding: 0 5rem 0 5rem;
+  display: grid;
+  grid-template-areas:
+    "main_budget main_budget"
+    "budgets recent_transactions"
+    "budgets recent_transactions"
+    "categories merchants";
+
+  grid-template-columns: 50% 50%;
+  grid-template-rows: auto auto 2fr 2fr;
+  justify-content: center;
+
+
+  .main-budget {
+    grid-area: main_budget;
+    width: 60%;
+    justify-self: center;
+
+    .spending-progress-info {
+      text-align: right;
+    }
+  }
+
+  .budgets {
+    grid-area: budgets;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+
+    h2 {
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    li {
+      padding: 0.5rem 0;
+
+      .spending-progress-info {
+        text-align: right;
+      }
+    }
+
+  }
+
+  .recent-transactions {
+    grid-area: recent_transactions;
+    padding: 2rem;
+
+    h3 {
+      margin-top: 2rem;
+    }
+
+    tr {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      padding: 1rem 0;
+
+      .merchant {
+        order: 1;
+        text-align: left;
+        flex-basis: 60%;
+      }
+
+      .amount {
+        order: 2;
+        text-align: right;
+        flex: 1;
+      }
+
+      .tag {
+        order: 3;
+        text-align: left;
+      }
+
+      .date {
+        order: 4;
+        text-align: right;
+        flex: 1;
+      }
+
+      td {
+        padding: 0.2rem 1rem;
+      }
+    }
+  }
+
+  .categories {
+    grid-area: categories;
+    padding: 2rem;
+  }
+
+  .merchants {
+    grid-area: merchants;
+    padding: 2rem;
+  }
+
+  .right-column {
+    justify-self: center;
+  }
+
+  h3 {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  table {
+
+  }
+}
+
+
+//potentially global
+
+.spending-progress {
+  width: 100%;
+  text-align: right;
+  margin: 0.5rem 0;
+  background-color: $grey;
+
+  .spent {
+    background-color: $yellow;
+    height: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.large-progress-bar {
+  height: 3rem;
+}
+
+.standard-progress-bar {
+  height: 2rem;
+}
+
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $dark-blue;
+  color: white;
+  height: 3rem;
+  width: 10rem;
+  margin: 0.5rem 0;
+}
+
+.large-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $dark-blue;
+  color: white;
+  height: 4rem;
+  width: 100%;
+  margin: 0.5rem 0;
+}
+
+
+a.btn:visited {
+  color: white;
+}
+
+a.large-btn:visited {
+  color: white;
+}

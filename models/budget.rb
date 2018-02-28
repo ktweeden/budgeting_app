@@ -49,7 +49,8 @@ class Budget
     budget_hash = {
       'amount' => @amount,
       'spent' => total_spent_by_month(month, year),
-      'remaining' => @amount - total_spent_by_month(month, year)
+      'remaining' => @amount - total_spent_by_month(month, year),
+      'percentage' => ((total_spent_by_month(month, year)/@amount.to_f) * 100).round(0)
     }
     budget_hash['tag'] = Tag.find_by_id(@tag_id).name if @tag_id
     budget_hash

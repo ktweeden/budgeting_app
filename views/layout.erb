@@ -4,18 +4,22 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="/style.css">
     <link href="https://fonts.googleapis.com/css?family=Arvo|Lato" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
     <title>Budgey</title>
   </head>
-  <body>
-    <h1 class="main-title"><a href='/'>Budgey</a></h1>
+  <header>
     <nav>
       <ul>
         <li><a href = "/">Home</a></li>
+        <li><a href = "/">Transactions</a></li>
+        <li><a href = "/budgets">Budgets</a></li>
         <li><a href = "/merchants">Merchants</a></li>
-        <li><a href = "/tags">Tags</a></li>
-        <li><a href="/budgets">Budgets</a></li>
+        <li><a href = "/tags">Categories</a></li>
       </ul>
     </nav>
+    <h2 class="site-title"><a href='/'>budgey</a></h2>
+  </header>
+  <body>
     <%= yield %>
   </body>
 </html>

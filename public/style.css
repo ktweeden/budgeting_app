@@ -44,21 +44,32 @@ table {
 .main-title {
   text-align: center;
   padding: 2rem 0; }
-  .main-title a {
-    color: #153B50; }
-  .main-title a:visited {
-    color: #153B50; }
+
+.site-title {
+  font-family: "Quicksand", sans-serif; }
+
+header {
+  display: flex;
+  flex-direction: row;
+  margin: 0.5rem 1rem;
+  justify-content: space-between;
+  align-items: flex-end; }
+  header nav ul {
+    display: flex;
+    flex-direction: row; }
+    header nav ul li {
+      margin-right: 1rem; }
 
 html {
   font-family: "Arvo", serif;
   box-sizing: border-box; }
 
 a {
-  text-decoration: none;
-  color: #EEB902; }
+  color: black;
+  text-decoration: none; }
 
 a:visited {
-  color: #EEB902; }
+  color: black; }
 
 h1 {
   font-size: 4rem;
@@ -81,7 +92,7 @@ th {
   padding: 1rem; }
 
 tr {
-  border-bottom: 1px solid #153B50; }
+  border-bottom: 1px solid black; }
 
 td {
   padding: 0.5rem 1rem; }
@@ -100,5 +111,114 @@ td {
 .summary-title {
   width: 100vw;
   text-align: center; }
+
+.dashboard {
+  padding: 0 5rem 0 5rem;
+  display: grid;
+  grid-template-areas: "main_budget main_budget" "budgets recent_transactions" "budgets recent_transactions" "categories merchants";
+  grid-template-columns: 50% 50%;
+  grid-template-rows: auto auto 2fr 2fr;
+  justify-content: center; }
+  .dashboard .main-budget {
+    grid-area: main_budget;
+    width: 60%;
+    justify-self: center; }
+    .dashboard .main-budget .spending-progress-info {
+      text-align: right; }
+  .dashboard .budgets {
+    grid-area: budgets;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column; }
+    .dashboard .budgets h2 {
+      margin-bottom: 2rem;
+      text-align: center; }
+    .dashboard .budgets li {
+      padding: 0.5rem 0; }
+      .dashboard .budgets li .spending-progress-info {
+        text-align: right; }
+  .dashboard .recent-transactions {
+    grid-area: recent_transactions;
+    padding: 2rem; }
+    .dashboard .recent-transactions h3 {
+      margin-top: 2rem; }
+    .dashboard .recent-transactions tr {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      padding: 1rem 0; }
+      .dashboard .recent-transactions tr .merchant {
+        order: 1;
+        text-align: left;
+        flex-basis: 60%; }
+      .dashboard .recent-transactions tr .amount {
+        order: 2;
+        text-align: right;
+        flex: 1; }
+      .dashboard .recent-transactions tr .tag {
+        order: 3;
+        text-align: left; }
+      .dashboard .recent-transactions tr .date {
+        order: 4;
+        text-align: right;
+        flex: 1; }
+      .dashboard .recent-transactions tr td {
+        padding: 0.2rem 1rem; }
+  .dashboard .categories {
+    grid-area: categories;
+    padding: 2rem; }
+  .dashboard .merchants {
+    grid-area: merchants;
+    padding: 2rem; }
+  .dashboard .right-column {
+    justify-self: center; }
+  .dashboard h3 {
+    text-align: center;
+    margin-bottom: 2rem; }
+
+.spending-progress {
+  width: 100%;
+  text-align: right;
+  margin: 0.5rem 0;
+  background-color: #f0f0f0; }
+  .spending-progress .spent {
+    background-color: #EEB902;
+    height: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+
+.large-progress-bar {
+  height: 3rem; }
+
+.standard-progress-bar {
+  height: 2rem; }
+
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #003554;
+  color: white;
+  height: 3rem;
+  width: 10rem;
+  margin: 0.5rem 0; }
+
+.large-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #003554;
+  color: white;
+  height: 4rem;
+  width: 100%;
+  margin: 0.5rem 0; }
+
+a.btn:visited {
+  color: white; }
+
+a.large-btn:visited {
+  color: white; }
 
 /*# sourceMappingURL=style.css.map */
