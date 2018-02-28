@@ -97,73 +97,37 @@ tr {
 td {
   padding: 0.5rem 1rem; }
 
+.all-transactions {
+  padding: 0 5rem 0 5rem;
+  display: grid;
+  grid-template-areas: "main_budget main_budget" "transactions cta" "transactions previous_spending" "transactions .";
+  grid-template-columns: 50% 50%;
+  grid-template-rows: auto;
+  justify-content: center; }
+  .all-transactions .cta {
+    grid-area: cta;
+    padding: 2rem; }
+  .all-transactions .previous-spending {
+    grid-area: previous_spending;
+    padding: 0 2rem 2rem 2rem; }
+    .all-transactions .previous-spending h3 {
+      margin: 2rem 0 1rem 0; }
+  .all-transactions .spending-progress-info {
+    text-align: right; }
+
 .top-line {
   display: flex;
   flex-direction: row;
   margin: 1rem 2rem;
   justify-content: space-between; }
 
-.transaction-table {
-  display: flex;
-  flex-direction: row;
-  justify-content: center; }
-
-.summary-title {
-  width: 100vw;
-  text-align: center; }
-
 .dashboard {
   padding: 0 5rem 0 5rem;
   display: grid;
-  grid-template-areas: "main_budget main_budget" "budgets recent_transactions" "budgets recent_transactions" "categories merchants";
+  grid-template-areas: "main_budget main_budget" "budgets transactions" "budgets transactions" "categories merchants";
   grid-template-columns: 50% 50%;
   grid-template-rows: auto auto 2fr 2fr;
   justify-content: center; }
-  .dashboard .main-budget {
-    grid-area: main_budget;
-    width: 60%;
-    justify-self: center; }
-    .dashboard .main-budget .spending-progress-info {
-      text-align: right; }
-  .dashboard .budgets {
-    grid-area: budgets;
-    padding: 2rem;
-    display: flex;
-    flex-direction: column; }
-    .dashboard .budgets h2 {
-      margin-bottom: 2rem;
-      text-align: center; }
-    .dashboard .budgets li {
-      padding: 0.5rem 0; }
-      .dashboard .budgets li .spending-progress-info {
-        text-align: right; }
-  .dashboard .recent-transactions {
-    grid-area: recent_transactions;
-    padding: 2rem; }
-    .dashboard .recent-transactions h3 {
-      margin-top: 2rem; }
-    .dashboard .recent-transactions tr {
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-      padding: 1rem 0; }
-      .dashboard .recent-transactions tr .merchant {
-        order: 1;
-        text-align: left;
-        flex-basis: 60%; }
-      .dashboard .recent-transactions tr .amount {
-        order: 2;
-        text-align: right;
-        flex: 1; }
-      .dashboard .recent-transactions tr .tag {
-        order: 3;
-        text-align: left; }
-      .dashboard .recent-transactions tr .date {
-        order: 4;
-        text-align: right;
-        flex: 1; }
-      .dashboard .recent-transactions tr td {
-        padding: 0.2rem 1rem; }
   .dashboard .categories {
     grid-area: categories;
     padding: 2rem; }
@@ -201,24 +165,109 @@ td {
   align-items: center;
   background-color: #003554;
   color: white;
+  margin: 0.5rem 0;
+  font-family: "Lato", sans-serif;
+  letter-spacing: 0.05rem; }
+
+.small-btn {
   height: 3rem;
   width: 10rem;
-  margin: 0.5rem 0; }
+  font-size: 1.2rem; }
 
 .large-btn {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #003554;
-  color: white;
   height: 4rem;
   width: 100%;
-  margin: 0.5rem 0; }
+  font-size: 1.5rem; }
 
 a.btn:visited {
   color: white; }
 
 a.large-btn:visited {
   color: white; }
+
+.transactions {
+  grid-area: transactions;
+  padding: 2rem; }
+  .transactions h3 {
+    margin-top: 2rem; }
+  .transactions tr {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 1rem 0; }
+    .transactions tr .merchant {
+      order: 1;
+      text-align: left;
+      flex-basis: 60%; }
+    .transactions tr .amount {
+      order: 2;
+      text-align: right;
+      flex: 1; }
+    .transactions tr .tag {
+      order: 3;
+      text-align: left;
+      flex-basis: 60%; }
+    .transactions tr .date {
+      order: 4;
+      text-align: right;
+      flex: 1; }
+    .transactions tr td {
+      padding: 0.2rem 1rem; }
+
+.main-budget {
+  grid-area: main_budget;
+  width: 60%;
+  justify-self: center; }
+  .main-budget .spending-progress-info {
+    text-align: right; }
+
+.budgets {
+  grid-area: budgets;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column; }
+  .budgets h2 {
+    margin-bottom: 2rem;
+    text-align: center; }
+  .budgets li {
+    padding: 0.5rem 0; }
+    .budgets li .spending-progress-info {
+      text-align: right; }
+
+.all-budgets {
+  padding: 0 5rem 0 5rem;
+  display: grid;
+  grid-template-areas: "main_budget main_budget" "edit budgets" "edit budgets";
+  grid-template-columns: 50% 50%;
+  grid-template-rows: auto;
+  justify-content: center; }
+  .all-budgets .editable-budgets {
+    grid-area: edit;
+    padding: 2rem;
+    justify-content: center; }
+    .all-budgets .editable-budgets h3 {
+      text-align: center;
+      width: 100%;
+      padding-bottom: 1rem; }
+    .all-budgets .editable-budgets table {
+      width: 100%;
+      margin-bottom: 2rem; }
+      .all-budgets .editable-budgets table tr {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        padding: 1rem 0;
+        justify-content: space-between; }
+        .all-budgets .editable-budgets table tr td {
+          flex: 1; }
+        .all-budgets .editable-budgets table tr .amount {
+          text-align: left; }
+        .all-budgets .editable-budgets table tr .name {
+          text-align: left; }
+        .all-budgets .editable-budgets table tr .edit {
+          text-align: right; }
+  .all-budgets .cta {
+    grid-area: cta;
+    padding: 2rem; }
 
 /*# sourceMappingURL=style.css.map */

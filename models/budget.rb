@@ -64,6 +64,22 @@ class Budget
     end
   end
 
+  def previous_3_months_spending_info
+    date = Date.today
+    previousd1 = date << 1
+    previousd2 = date << 2
+    previousd3 = date << 3
+    budget_array = [
+      month_spending_info(previousd1.strftime("%m"), previousd1.strftime("%Y")),
+      month_spending_info(previousd2.strftime("%m"), previousd2.strftime("%Y")),
+      month_spending_info(previousd3.strftime("%m"), previousd3.strftime("%Y"))
+    ]
+    budget_array[0]['month'] = previousd1.strftime("%B")
+    budget_array[1]['month'] = previousd2.strftime("%B")
+    budget_array[2]['month'] = previousd3.strftime("%B")
+    budget_array
+  end
+
   def self.find_by_id(id)
     sql = "SELECT * FROM budgets WHERE id = $1;"
     values = [id]

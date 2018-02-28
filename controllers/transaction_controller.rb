@@ -5,6 +5,16 @@ require_relative '../models/utils'
 require_relative '../models/budget'
 
 
+get '/transactions' do
+  @date = Date.today
+  @month = @date.strftime("%m")
+  @year = @date.strftime("%Y")
+  @main_budget = Budget.main_budget.month_spending_info(@month, @year)
+  @transactions = Transaction.all
+  @previous = Budget.main_budget.previous_3_months_spending_info
+  erb(:"transactions/all")
+end
+
 get '/add/transaction' do
   @merchants = Merchant.all
   @tags = Tag.all

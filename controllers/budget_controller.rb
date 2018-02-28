@@ -7,8 +7,12 @@ require 'pry'
 
 
 get '/budgets' do
-  @main = Budget.main_budget
+  @date = Date.today
+  @month = @date.strftime("%m")
+  @year = @date.strftime("%Y")
+  @main_budget = Budget.main_budget.month_spending_info(@month, @year)
   @tag_budgets = Budget.all_tag_budgets
+  @tag_budget_info = Budget.all_tag_budgets.map {|budget| budget.month_spending_info(@month, @year)}
   erb(:"budgets/all")
 end
 

@@ -80,4 +80,16 @@ class Merchant
     results.map {|merchant| Merchant.new(merchant)}
   end
 
+  def self.all_for_month(month, year)
+    sql = "
+    SELECT merchants.name, merchants.id, SUM(transactions.amount) AS amount FROM merchants
+    INNER JOIN transactions ON transactions.merchant_id = merchants.id
+    WHERE (EXTRACT(MONTH FROM transactions.dt), EXTRACT (YEAR FROM transactions.dt)) = ($1, $2)
+    GROUP BY merchants.id
+    ORDER BY SUM (transactions.amount) DESC;"
+    values = [month, year]
+    results = SqlRunner.run(sql, values)
+    results.each {|result| p result}
+  end
+
 end

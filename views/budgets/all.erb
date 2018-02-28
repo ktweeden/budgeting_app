@@ -1,29 +1,43 @@
-<main>
-  <h2 class="summary-title">Budgets</h2>
-  <h3>Monthly Budget: &pound;<%=to_pounds(@main.amount)%></h3>
-  <a href="/budgets/update/main">
-    Edit
-  </a>
-  <section class="transaction-table">
+<h1 class="main-title">Budgets</h1>
+<main class="all-budgets">
+  <div class="main-budget">
+    <div class="spending-progress large-progress-bar">
+      <div class="spent" style="width:<%=@main_budget['percentage']%>%">
+        <%=@main_budget['percentage']%>&#37;
+      </div>
+    </div>
+    <p class="spending-progress-info">&pound;
+    <%=to_pounds(@main_budget['spent'])%> of &pound;<%=to_pounds(@main_budget['amount'])%>
+    spent in <%=@date.strftime("%B")%></p>
+    <a href="/budgets/update/main">
+      Edit monthly budget
+    </a>
+  </div>
+  <div class="editable-budgets">
     <table>
-      <tr>
-        <th>Amount</th>
-        <th>Tag</th>
-      </tr>
+      <h3>Current budgets</h3>
       <% @tag_budgets.each do |budget| %>
       <tr>
-        <td>&pound; <%= to_pounds(budget.amount) %></td>
-        <td>
-          <a href ="/tags/<%= budget.tag_id %>">
-          <%= budget.tag.name %>
-        </td>
-        <td>
-          <a href="/budgets/update/<%= budget.id %>">
-            Edit
-          </a>
-        </td>
+        <td class="amount">&pound; <%= to_pounds(budget.amount) %></td>
+        <td class="name"><a href ="/tags/<%= budget.tag_id %>"><%= budget.tag.name %></a></td>
+        <td class="edit"><a href="/budgets/update/<%= budget.id %>">Edit</a></td>
       </tr>
       <% end %>
     </table>
-  </section>
+    <a class="btn large-btn" href="/budgets/add">Add a budget </a>
+  </div>
+  <ul class="budgets">
+    <h3>Spending towards budgets</h3>
+    <% @tag_budget_info.each do |budget|%>
+      <li>
+        <%= budget['tag'] %>
+        <div class="spending-progress standard-progress-bar">
+          <div class="spent" style="width:<%=budget['percentage']%>%">
+            <%=budget['percentage']%>&#37;
+          </div>
+        </div>
+        <p class="spending-progress-info">&pound; <%=to_pounds(budget['spent'])%> of &pound;<%=to_pounds(budget['amount'])%> spent</p>
+      </li>
+    <% end %>
+  </ul>
 </main>

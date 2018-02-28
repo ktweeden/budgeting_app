@@ -82,10 +82,19 @@ class Tag
     SELECT tags.name, tags.id FROM tags
     INNER JOIN transactions ON transactions.tag_id = tags.id
     GROUP BY tags.id
-    ORDER BY SUM (transactions.amount) DESC;
-    "
+    ORDER BY SUM (transactions.amount) DESC;"
     results = SqlRunner.run(sql)
     results.map {|tag| Tag.new(tag)}
   end
 
+  def self.all_for_month(month, year)
+    sql = "
+    SELECT tags.name, tags.id, SUM(transactions.amount) AS amount FROM tags
+    INNER JOIN transactions ON transactions.tag_id = tags.id
+    WHERE (EXTRACT(MONTH FROM transactions.dt), EXTRACT (YEAR FROM transactions.dt)) = ($1, $2)
+    GROUP BY tags.id
+    ORDER BY SUM (transactions.amount) DESC;"
+    values = [month, year]
+    results = SqlRunner.run(sql, values)
+  end
 end
