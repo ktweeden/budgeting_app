@@ -89,7 +89,6 @@ class Merchant
     ORDER BY SUM (transactions.amount) DESC;"
     values = [month, year]
     results = SqlRunner.run(sql, values)
-    results.each {|result| p result}
   end
 
 end

@@ -41,13 +41,6 @@ table {
   border-collapse: collapse;
   border-spacing: 0; }
 
-.main-title {
-  text-align: center;
-  padding: 2rem 0; }
-
-.site-title {
-  font-family: "Quicksand", sans-serif; }
-
 header {
   display: flex;
   flex-direction: row;
@@ -64,38 +57,18 @@ html {
   font-family: "Arvo", serif;
   box-sizing: border-box; }
 
-a {
-  color: black;
-  text-decoration: none; }
-
-a:visited {
-  color: black; }
-
-h1 {
-  font-size: 4rem;
-  font-family: "Lato", sans-serif; }
-
-h2 {
-  font-size: 1.75rem;
-  font-family: "Lato", sans-serif; }
-
-h3 {
-  font-size: 1.5rem;
-  font-family: "Lato", sans-serif; }
-
-table {
-  justify-self: center; }
-
-th {
-  font-family: "Lato", sans-serif;
-  font-size: 1.5rem;
-  padding: 1rem; }
-
-tr {
-  border-bottom: 1px solid black; }
-
-td {
-  padding: 0.5rem 1rem; }
+.budgets {
+  grid-area: budgets;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column; }
+  .budgets h2 {
+    margin-bottom: 2rem;
+    text-align: center; }
+  .budgets li {
+    padding: 0.5rem 0; }
+    .budgets li .spending-progress-info {
+      text-align: right; }
 
 .all-transactions {
   padding: 0 5rem 0 5rem;
@@ -140,24 +113,60 @@ td {
     text-align: center;
     margin-bottom: 2rem; }
 
-.spending-progress {
-  width: 100%;
-  text-align: right;
-  margin: 0.5rem 0;
-  background-color: #f0f0f0; }
-  .spending-progress .spent {
-    background-color: #EEB902;
-    height: 100%;
+.all-budgets {
+  padding: 0 5rem 0 5rem;
+  display: grid;
+  grid-template-areas: "main_budget main_budget" "edit budgets" "edit budgets";
+  grid-template-columns: 50% 50%;
+  grid-template-rows: auto;
+  justify-content: center; }
+  .all-budgets h3 {
     text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center; }
+    width: 100%;
+    padding-bottom: 1rem; }
+  .all-budgets .editable-budgets {
+    grid-area: edit;
+    padding: 2rem;
+    justify-content: center; }
+    .all-budgets .editable-budgets td {
+      flex: 1; }
+    .all-budgets .editable-budgets .amount {
+      text-align: left; }
+    .all-budgets .editable-budgets .name {
+      text-align: left; }
+    .all-budgets .editable-budgets .edit {
+      text-align: right; }
+  .all-budgets .cta {
+    grid-area: cta;
+    padding: 2rem; }
 
-.large-progress-bar {
-  height: 3rem; }
-
-.standard-progress-bar {
-  height: 2rem; }
+.all-merchants {
+  padding: 0 5rem 0 5rem;
+  display: grid;
+  grid-template-areas: "merchant_list budgets" "merchant_list cta" "merchant_list .";
+  grid-template-columns: 50% 50%;
+  grid-template-rows: auto;
+  justify-content: center; }
+  .all-merchants h3 {
+    text-align: center;
+    width: 100%;
+    padding-bottom: 1rem; }
+  .all-merchants .merchant-list {
+    grid-area: merchant_list;
+    padding: 2rem;
+    justify-content: center; }
+    .all-merchants .merchant-list .name {
+      flex: 2;
+      text-align: left; }
+    .all-merchants .merchant-list .amount {
+      flex: 1;
+      text-align: right; }
+  .all-merchants .top-this-month {
+    grid-area: budgets;
+    padding: 2rem;
+    justify-content: center; }
+  .all-merchants .cta {
+    grid-area: cta; }
 
 .btn {
   display: flex;
@@ -184,6 +193,46 @@ a.btn:visited {
 
 a.large-btn:visited {
   color: white; }
+
+.main-budget {
+  grid-area: main_budget;
+  width: 60%;
+  justify-self: center; }
+  .main-budget .spending-progress-info {
+    text-align: right; }
+
+.spending-progress {
+  width: 100%;
+  text-align: right;
+  margin: 0.5rem 0;
+  background-color: #f0f0f0; }
+  .spending-progress .spent {
+    background-color: #EEB902;
+    height: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+
+.large-progress-bar {
+  height: 3rem; }
+
+.standard-progress-bar {
+  height: 2rem; }
+
+table {
+  justify-self: center; }
+
+th {
+  font-family: "Lato", sans-serif;
+  font-size: 1.5rem;
+  padding: 1rem; }
+
+tr {
+  border-bottom: 1px solid black; }
+
+td {
+  padding: 0.5rem 1rem; }
 
 .transactions {
   grid-area: transactions;
@@ -214,60 +263,40 @@ a.large-btn:visited {
     .transactions tr td {
       padding: 0.2rem 1rem; }
 
-.main-budget {
-  grid-area: main_budget;
-  width: 60%;
-  justify-self: center; }
-  .main-budget .spending-progress-info {
-    text-align: right; }
+.three-item-table {
+  width: 100%;
+  margin-bottom: 2rem; }
+  .three-item-table tr {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 1rem 0;
+    justify-content: space-between; }
 
-.budgets {
-  grid-area: budgets;
-  padding: 2rem;
-  display: flex;
-  flex-direction: column; }
-  .budgets h2 {
-    margin-bottom: 2rem;
-    text-align: center; }
-  .budgets li {
-    padding: 0.5rem 0; }
-    .budgets li .spending-progress-info {
-      text-align: right; }
+.main-title {
+  text-align: center;
+  padding: 2rem 0; }
 
-.all-budgets {
-  padding: 0 5rem 0 5rem;
-  display: grid;
-  grid-template-areas: "main_budget main_budget" "edit budgets" "edit budgets";
-  grid-template-columns: 50% 50%;
-  grid-template-rows: auto;
-  justify-content: center; }
-  .all-budgets h3 {
-    text-align: center;
-    width: 100%;
-    padding-bottom: 1rem; }
-  .all-budgets .editable-budgets {
-    grid-area: edit;
-    padding: 2rem;
-    justify-content: center; }
-    .all-budgets .editable-budgets table {
-      width: 100%;
-      margin-bottom: 2rem; }
-      .all-budgets .editable-budgets table tr {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        padding: 1rem 0;
-        justify-content: space-between; }
-        .all-budgets .editable-budgets table tr td {
-          flex: 1; }
-        .all-budgets .editable-budgets table tr .amount {
-          text-align: left; }
-        .all-budgets .editable-budgets table tr .name {
-          text-align: left; }
-        .all-budgets .editable-budgets table tr .edit {
-          text-align: right; }
-  .all-budgets .cta {
-    grid-area: cta;
-    padding: 2rem; }
+.site-title {
+  font-family: "Quicksand", sans-serif; }
+
+a {
+  color: black;
+  text-decoration: none; }
+
+a:visited {
+  color: black; }
+
+h1 {
+  font-size: 4rem;
+  font-family: "Lato", sans-serif; }
+
+h2 {
+  font-size: 1.75rem;
+  font-family: "Lato", sans-serif; }
+
+h3 {
+  font-size: 1.5rem;
+  font-family: "Lato", sans-serif; }
 
 /*# sourceMappingURL=style.css.map */

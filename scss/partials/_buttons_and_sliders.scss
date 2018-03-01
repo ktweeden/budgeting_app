@@ -1,0 +1,68 @@
+//buttons
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $dark-blue;
+  color: white;
+  margin: 0.5rem 0;
+  font-family: $header-font;
+  letter-spacing: 0.05rem;
+}
+
+.small-btn {
+  height: 3rem;
+  width: 10rem;
+  font-size: 1.2rem;
+}
+
+.large-btn {
+  height: 4rem;
+  width: 100%;
+  font-size: 1.5rem;
+}
+
+a.btn:visited {
+  color: white;
+}
+
+a.large-btn:visited {
+  color: white;
+}
+
+
+//progress bars
+.main-budget {
+  grid-area: main_budget;
+  width: 60%;
+  justify-self: center;
+
+  .spending-progress-info {
+    text-align: right;
+  }
+}
+
+
+.spending-progress {
+  width: 100%;
+  text-align: right;
+  margin: 0.5rem 0;
+  background-color: $grey;
+
+  .spent {
+    background-color: $yellow;
+    height: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.large-progress-bar {
+  height: 3rem;
+}
+
+.standard-progress-bar {
+  height: 2rem;
+}

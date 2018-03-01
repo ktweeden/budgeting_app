@@ -1,20 +1,37 @@
-<main>
-  <section class="transaction-table">
-    <table>
-      <tr>
-        <th>Merchant</td>
-        <th>Amount</td>
-      </tr>
+<h1 class="main-title">Merchants</h1>
+<main class="all-merchants">
+  <div class="merchant-list">
+    <table class="three-item-table">
+      <h3>All time spending</h3>
       <% @merchants.each do |merchant| %>
       <tr>
-        <td>
+        <td class="name">
           <a href = "/merchants/<%= merchant.id %>">
             <%= merchant.name %>
           </a>
         </td>
-        <td>&pound; <%= to_pounds(merchant.total_spent) %></td>
+        <td class="amount">&pound; <%= to_pounds(merchant.total_spent) %></td>
       </tr>
       <% end %>
     </table>
-  </section>
+  </div>
+  <div class="cta">
+    <a href="/add/merchant" class="btn large-btn">Add a merchant</a>
+    <a href="/add/transaction" class="btn large-btn">Add a transaction</a>
+  </div>
+  <div class="top-this-month">
+    <table class="three-item-table">
+      <h3>Top merchants in <%=@date.strftime("%B")%></h3>
+      <% @merchants_this_month.each do |merchant| %>
+      <tr>
+        <td class="name">
+          <a href = "/merchants/<%= merchant['id'] %>">
+            <%= merchant['name'] %>
+          </a>
+        </td>
+        <td class="amount">&pound; <%= to_pounds(merchant['amount'].to_i) %></td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
 </main>

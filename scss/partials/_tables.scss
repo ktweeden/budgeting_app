@@ -1,0 +1,78 @@
+table {
+  justify-self: center;
+}
+
+th {
+  font-family: $header-font;
+  font-size: 1.5rem;
+  padding: 1rem;
+}
+
+tr {
+  border-bottom: 1px solid black;
+}
+
+td {
+  padding: 0.5rem 1rem;
+}
+
+
+//specific tables
+.transactions {
+  grid-area: transactions;
+  padding: 2rem;
+
+  h3 {
+    margin-top: 2rem;
+  }
+
+  tr {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 1rem 0;
+
+    .merchant {
+      order: 1;
+      text-align: left;
+      flex-basis: 60%;
+    }
+
+    .amount {
+      order: 2;
+      text-align: right;
+      flex: 1;
+    }
+
+    .tag {
+      order: 3;
+      text-align: left;
+      flex-basis: 60%;
+    }
+
+    .date {
+      order: 4;
+      text-align: right;
+      flex: 1;
+    }
+
+    td {
+      padding: 0.2rem 1rem;
+    }
+  }
+}
+
+
+.three-item-table {
+  width: 100%;
+  margin-bottom: 2rem;
+
+  tr {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 1rem 0;
+    justify-content: space-between;
+
+  }
+}
