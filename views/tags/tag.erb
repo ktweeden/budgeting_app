@@ -14,6 +14,10 @@
       Edit budget
     </a>
   </div>
+  <% else %>
+    <div class="main-budget">
+      <a class="btn large-btn" href = "/budgets/add">Add a budget for this category</a>
+    </div>
   <% end %>
   <div class="transactions-this-month">
     <h3>Transactions in <%=@date.strftime("%B")%></h3>

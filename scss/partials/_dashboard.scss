@@ -30,4 +30,52 @@
     margin-bottom: 2rem;
   }
 
+  .year-overview {
+    margin-top: 2.5rem;
+  }
+
+}
+
+
+.spinning {
+  animation-name: spin;
+  animation-duration: 5000ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+
+}
+
+@keyframes spin {
+    from {
+        transform:rotate(0deg);
+    }
+    to {
+        transform:rotate(360deg);
+    }
+}
+
+.spinning-anti {
+  animation-name: spina;
+  animation-duration: 5000ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+
+}
+
+@keyframes spina {
+    0% {
+        transform:rotate(0deg);
+    }
+    25% {
+        transform:rotate(-90deg);
+    }
+
+    50% {
+        transform:rotate(-180deg);
+    }
+
+    75% {
+        transform:rotate(-270deg);
+    }
+
 }

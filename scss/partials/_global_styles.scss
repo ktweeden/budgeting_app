@@ -17,6 +17,19 @@ header {
       }
     }
   }
+
+  .site-title {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: flex-end;
+
+    .site-logo{
+      margin-right: 1rem;
+      height: 2rem;
+      align-self: baseline;
+    }
+  }
 }
 
 html {
