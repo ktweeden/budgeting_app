@@ -1,0 +1,53 @@
+.form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.add-form {
+  display: flex;
+  flex-direction: column;
+  width: 40vw;
+  flex-wrap: wrap;
+
+
+  input {
+    width: 100%;
+    height: 2rem;
+    font-size: 1rem;
+    font-family: $content-font;
+    background-color: $grey;
+    border: none;
+    text-align: center;
+
+    &.large-btn {
+      margin-top: 1rem;
+      background-color: $yellow;
+    }
+  }
+
+  label {
+    margin: 2rem 0 1rem 0;
+    font-size: 1.5rem;
+    font-family: $header-font;
+  }
+
+  select {
+    width: 100%;
+    height: 2rem;
+    font-size: 1rem;
+    font-family: $content-font;
+    text-align: center;
+    background-color: $grey;
+    border: none;
+  }
+
+  label.small {
+    flex-basis: 50%;
+    flex: 1;
+  }
+
+  input.small {
+    flex: 1;
+  }
+}

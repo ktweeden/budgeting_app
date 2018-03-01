@@ -1,9 +1,10 @@
-<main>
-  <form action="/add/transaction" method="post">
-    <label for="date">Date:</label>
-    <input type="date" name="dt">
-    <label for="amount">Amount:</label>
-    <input type="number" name="amount">
+<h1 class="main-title">Add a Transaction</h1>
+<main class="form-container">
+  <form class="add-form" action="/add/transaction" method="post">
+    <label class="small" for="date">Date:</label>
+    <input class="small" type="date" name="dt">
+    <label class="small" for="amount">Amount:</label>
+    <input class="small" type="number" name="amount">
     <label for="merchant">Merchant:</label>
     <select name="merchant_id">
       <% @merchants.each do |merchant| %>
@@ -16,6 +17,6 @@
         <option value="<%=tag.id%>"><%=tag.name%></option>
       <% end %>
     </select>
-    <input type="submit" value="Add Transaction">
+    <input class="large-btn btn"type="submit" value="Add Transaction">
   </form>
 </main>

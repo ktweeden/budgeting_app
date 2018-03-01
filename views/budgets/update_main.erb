@@ -1,7 +1,8 @@
-<main>
-  <form action="/budgets/update/<%=@budget.id%>" method="post">
+<h1 class="main-title">Update monthly budget</h1>
+<main class="form-container">
+  <form class="add-form" action="/budgets/update/<%=@budget.id%>" method="post">
     <label for="amount">Amount:</label>
     <input type="number" name="amount" value="<%= to_pounds(@budget.amount)%>"/>
-    <input type="submit" value="Update Budget" />
+    <input class="large-btn btn"type="submit" value="Update Budget" />
   </form>
 </main>
