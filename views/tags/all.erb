@@ -1,18 +1,49 @@
-<section class="transaction-table">
-  <table>
-    <tr>
-      <th>Tag</td>
-      <th>Amount</td>
-    </tr>
-    <% @tags.each do |tag| %>
-    <tr>
-      <td>
-        <a href = "/tags/<%= tag.id %>">
-          <%= tag.name %>
-        </a>
-      </td>
-      <td>&pound; <%= to_pounds(tag.total_spent) %></td>
-    </tr>
+<h1 class="main-title">Categories</h1>
+<main class="all-tags">
+  <div class="tag-list">
+    <h3>All time spending</h3>
+    <table class="basic-table">
+      <% @tags.each do |tag| %>
+      <tr>
+        <td>
+          <a href = "/tags/<%= tag.id %>">
+            <%= tag.name %>
+          </a>
+        </td>
+        <td>&pound; <%= to_pounds(tag.total_spent) %></td>
+      </tr>
+      <% end %>
+    </table>
+    <a href="/add/transaction" class="btn large-btn">Add a transaction</a>
+  </div>
+  <ul class="budgets">
+    <h3>Category budgets for <%=@date.strftime("%B")%></h3>
+    <% @tag_budgets.each do |budget|%>
+      <li>
+        <%= budget['tag'] %>
+        <div class="spending-progress standard-progress-bar">
+          <div class="spent" style="width:<%=budget['percentage']%>%">
+            <%=budget['percentage']%>&#37;
+          </div>
+        </div>
+        <p class="spending-progress-info">&pound; <%=to_pounds(budget['spent'])%> of &pound;<%=to_pounds(budget['amount'])%> spent</p>
+      </li>
     <% end %>
-  </table>
-</section>
+    <a class="btn small-btn" href="/budgets/add">Add a budget </a>
+  </ul>
+  <div class="top-this-month">
+    <table class="basic-table">
+      <h3>Top categories in <%=@date.strftime("%B")%></h3>
+      <% @tags_this_month.each do |tag| %>
+      <tr>
+        <td class="name">
+          <a href = "/tags/<%= tag['id'] %>">
+            <%= tag['name'] %>
+          </a>
+        </td>
+        <td class="amount">&pound; <%= to_pounds(tag['amount'].to_i) %></td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</main>

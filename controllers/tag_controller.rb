@@ -13,6 +13,11 @@ get '/tags/:id' do
 end
 
 get '/tags' do
+  @date = Date.today
+  @month = @date.strftime("%m")
+  @year = @date.strftime("%Y")
   @tags = Tag.all
+  @tag_budgets = Budget.all_tag_budgets.map {|budget| budget.month_spending_info(@month, @year)}
+  @tags_this_month =  Tag.all_for_month(@month, @year).first(3)
   erb(:"tags/all")
 end

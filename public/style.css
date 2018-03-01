@@ -143,7 +143,7 @@ html {
 .all-merchants {
   padding: 0 5rem 0 5rem;
   display: grid;
-  grid-template-areas: "merchant_list budgets" "merchant_list cta" "merchant_list .";
+  grid-template-areas: "merchant_list monthly" "merchant_list cta" "merchant_list .";
   grid-template-columns: 50% 50%;
   grid-template-rows: auto;
   justify-content: center; }
@@ -162,10 +162,33 @@ html {
       flex: 1;
       text-align: right; }
   .all-merchants .top-this-month {
-    grid-area: budgets;
+    grid-area: monthly;
     padding: 2rem;
     justify-content: center; }
   .all-merchants .cta {
+    grid-area: cta; }
+
+.all-tags {
+  padding: 0 5rem 0 5rem;
+  display: grid;
+  grid-template-areas: "tag_list top_this_month" "tag_list budgets" "tag_list .";
+  grid-template-columns: 50% 50%;
+  grid-template-rows: auto;
+  justify-content: center; }
+  .all-tags h3 {
+    text-align: center;
+    width: 100%;
+    padding-bottom: 1rem; }
+  .all-tags .tag-list {
+    grid-area: tag_list;
+    padding: 2rem;
+    justify-content: center; }
+    .all-tags .tag-list table {
+      margin-bottom: 3rem; }
+  .all-tags .top-this-month {
+    grid-area: top_this_month;
+    padding: 2rem 2rem 0 2rem; }
+  .all-tags .cta {
     grid-area: cta; }
 
 .btn {
@@ -263,10 +286,10 @@ td {
     .transactions tr td {
       padding: 0.2rem 1rem; }
 
-.three-item-table {
+.basic-table {
   width: 100%;
   margin-bottom: 2rem; }
-  .three-item-table tr {
+  .basic-table tr {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;

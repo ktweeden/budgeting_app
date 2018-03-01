@@ -1,7 +1,7 @@
 <h1 class="main-title">Merchants</h1>
 <main class="all-merchants">
   <div class="merchant-list">
-    <table class="three-item-table">
+    <table class="basic-table">
       <h3>All time spending</h3>
       <% @merchants.each do |merchant| %>
       <tr>
@@ -20,7 +20,7 @@
     <a href="/add/transaction" class="btn large-btn">Add a transaction</a>
   </div>
   <div class="top-this-month">
-    <table class="three-item-table">
+    <table class="basic-table">
       <h3>Top merchants in <%=@date.strftime("%B")%></h3>
       <% @merchants_this_month.each do |merchant| %>
       <tr>

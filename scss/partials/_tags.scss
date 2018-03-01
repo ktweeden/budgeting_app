@@ -1,10 +1,10 @@
-.all-merchants {
+.all-tags {
   padding: 0 5rem 0 5rem;
   display: grid;
   grid-template-areas:
-    "merchant_list monthly"
-    "merchant_list cta"
-    "merchant_list .";
+    "tag_list top_this_month"
+    "tag_list budgets"
+    "tag_list .";
 
   grid-template-columns: 50% 50%;
   grid-template-rows: auto;
@@ -16,26 +16,19 @@
     padding-bottom: 1rem;
   }
 
-  .merchant-list {
-    grid-area: merchant_list;
+  .tag-list {
+    grid-area: tag_list;
     padding: 2rem;
     justify-content: center;
 
-    .name {
-      flex: 2;
-      text-align: left;
-    }
-
-    .amount {
-      flex: 1;
-      text-align: right;
+    table {
+      margin-bottom: 3rem;
     }
   }
 
   .top-this-month {
-    grid-area: monthly;
-    padding: 2rem;
-    justify-content: center;
+    grid-area: top_this_month;
+    padding: 2rem 2rem 0 2rem;
   }
 
   .cta {
