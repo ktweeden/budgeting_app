@@ -27,7 +27,7 @@
     <a class="btn large-btn" href="/budgets/add">Add a budget </a>
   </div>
   <ul class="budgets">
-    <h3>Spending towards budgets</h3>
+    <h3>Spending towards budgets in <%= @date.strftime("%B")%></h3>
     <% @tag_budget_info.each do |budget|%>
       <li>
         <%= budget['tag'] %>

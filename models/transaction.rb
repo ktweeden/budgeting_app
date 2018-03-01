@@ -4,7 +4,7 @@ require_relative 'utils'
 class Transaction
 
   attr_reader :id, :amount, :merchant_id, :tag_id, :date
-  attr_accessor :amount
+  attr_accessor :amount, :date
 
   def initialize(options)
     @id = options['id'].to_i if options['id']

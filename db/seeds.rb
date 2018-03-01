@@ -41,10 +41,14 @@ tags.each{|tag| tag.save }
 merchants.each{|merchant| merchant.save }
 
 transactions = [
+  Transaction.new({'amount' => 1000, 'dt' => '2018/03/01','merchant_id' => merchants[0].id, 'tag_id' => tags[0].id}),
+  Transaction.new({'amount' => 700, 'dt' => '2018/03/01', 'merchant_id' => merchants[9].id, 'tag_id' => tags[3].id}),
+  Transaction.new({'amount' => 685, 'dt' => '2018/03/01', 'merchant_id' => merchants[2].id, 'tag_id' => tags[1].id}),
+  Transaction.new({'amount' => 2270, 'dt' => '2018/03/01', 'merchant_id' => merchants[15].id, 'tag_id' => tags[5].id}),
+  Transaction.new({'amount' => 4560, 'dt' => '2018/03/01', 'merchant_id' => merchants[3].id, 'tag_id' => tags[2].id}),
   Transaction.new({'amount' => 1000, 'dt' => '2018/02/15','merchant_id' => merchants[0].id, 'tag_id' => tags[0].id}),
   Transaction.new({'amount' => 700, 'dt' => '2018/01/15', 'merchant_id' => merchants[1].id, 'tag_id' => tags[0].id}),
   Transaction.new({'amount' => 685, 'dt' => '2017/12/23', 'merchant_id' => merchants[2].id, 'tag_id' => tags[1].id}),
-  Transaction.new({'amount' => 2270, 'dt' => '2017/11/15', 'merchant_id' => merchants[15].id, 'tag_id' => tags[5].id}),
   Transaction.new({'amount' => 4560, 'dt' => '2017/12/23', 'merchant_id' => merchants[3].id, 'tag_id' => tags[2].id}),
   Transaction.new({'amount' => 1050, 'dt' => '2018/02/15', 'merchant_id' => merchants[4].id, 'tag_id' => tags[2].id}),
   Transaction.new({'amount' => 1145, 'dt' => '2018/02/17', 'merchant_id' => merchants[5].id, 'tag_id' => tags[2].id}),
@@ -65,13 +69,17 @@ transactions = [
 ]
 
 transactions.each {|transaction| transaction.save}
+transactions.each do |transaction|
+  transaction.date = transaction.date << 1
+  transaction.save
+end
 
 budgets = [
-  Budget.new({'amount' => 100000}),
-  Budget.new({'amount' => 40000, 'tag_id' => tags[0].id}),
-  Budget.new({'amount' => 5000, 'tag_id' => tags[1].id}),
-  Budget.new({'amount' => 10000, 'tag_id' => tags[3].id}),
-  Budget.new({'amount' => 7500, 'tag_id' => tags[5].id})
+  Budget.new({'amount' => 50000}),
+  Budget.new({'amount' => 15000, 'tag_id' => tags[0].id}),
+  Budget.new({'amount' => 3000, 'tag_id' => tags[1].id}),
+  Budget.new({'amount' => 7500, 'tag_id' => tags[3].id}),
+  Budget.new({'amount' => 5000, 'tag_id' => tags[5].id})
 ]
 
 budgets.each {|budget| budget.save}
