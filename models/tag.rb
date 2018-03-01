@@ -70,6 +70,39 @@ class Tag
     results.map {|transaction| Transaction.new(transaction)}
   end
 
+  def spending_by_month(month, year)
+    sql = "SELECT SUM(transactions.amount) AS amount FROM transactions
+    WHERE (EXTRACT(MONTH FROM transactions.dt), EXTRACT (YEAR FROM transactions.dt), tag_id) = ($1, $2, $3)
+    GROUP BY tag_id
+    ORDER BY SUM (transactions.amount) DESC;"
+    values = [month, year, @id]
+    if SqlRunner.run(sql, values).first == nil
+      return "0"
+    else
+      return SqlRunner.run(sql, values).first['amount']
+    end
+  end
+
+  def previous_3_months_spending_info
+    date = Date.today
+    previousd1 = date << 1
+    previousd2 = date << 2
+    previousd3 = date << 3
+    spent = [
+      { 'month' => previousd1.strftime("%B"),
+        'amount' => spending_by_month(previousd1.strftime("%m"), previousd1.strftime("%Y"))
+      },
+      {
+        'month' => previousd2.strftime("%B"),
+        'amount' => spending_by_month(previousd2.strftime("%m"), previousd2.strftime("%Y"))
+      },
+      {
+        'month' => previousd3.strftime("%B"),
+        'amount' => spending_by_month(previousd3.strftime("%m"), previousd3.strftime("%Y"))
+      }
+    ]
+  end
+
   def self.find_by_id(id)
     sql = "SELECT * FROM tags WHERE id = $1"
     values = [id]

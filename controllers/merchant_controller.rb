@@ -6,8 +6,10 @@ require_relative '../models/budget'
 
 
 get '/merchants/:id' do
+  @month = Date.today.strftime("%B")
   @merchant = Merchant.find_by_id(params['id'])
   @transactions = @merchant.transactions
+  @monthly = @merchant.previous_3_months_spending_info
   erb(:"merchants/merchant")
 end
 

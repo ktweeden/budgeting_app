@@ -1,12 +1,8 @@
-<main>
-  <h2 class="summary-title"><%= @merchant.name %></h2>
-  <section class="transaction-table">
-    <table>
-      <tr>
-        <th>Date</th>
-        <th>Amount</th>
-        <th>Tag</th>
-      </tr>
+<h1 class="main-title"><%= @merchant.name %></h1>
+<main class="individual-merchant-container">
+  <div class="transactions-this-month">
+    <h3>Transactions in <%= @month %></h3>
+    <table class="basic-table">
       <% @transactions.each do |transaction| %>
       <tr>
         <td><%= to_uk_date(transaction.date) %></td>
@@ -18,5 +14,16 @@
       </tr>
       <% end %>
     </table>
-  </section>
+  </div>
+  <div class="monthly">
+    <h3>Previous spending at <%= @merchant.name %></h3>
+    <table class="basic-table">
+      <% @monthly.each do |month| %>
+      <tr>
+        <td><%= month['month'] %></td>
+        <td>&pound; <%= to_pounds(month['amount'].to_i) %></td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
 </main>

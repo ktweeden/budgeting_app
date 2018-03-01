@@ -1,27 +1,45 @@
-<main>
-  <h2 class="summary-title"><%= @tag.name %></h2>
+<h1 class="main-title"><%= @tag.name  %></h1>
+<main class="individual-tag-container">
   <% if @budget != nil%>
-    <h3>Monthly budget for <%= @tag.name %> is &pound; <%=to_pounds(@budget.amount)%></h3>
-    <a href = "/budget/update/<%= @budget.id%>">Edit</a>
+  <div class="main-budget">
+    <div class="spending-progress large-progress-bar">
+      <div class="spent" style="width:<%=@budget_info['percentage']%>%">
+        <%=@budget_info['percentage']%>&#37;
+      </div>
+    </div>
+    <p class="spending-progress-info">&pound;
+    <%=to_pounds(@budget_info['spent'])%> of &pound;<%=to_pounds(@budget_info['amount'].to_i)%>
+    spent in <%=@date.strftime("%B")%></p>
+    <a href="/budgets/update/<%=@budget.id%>">
+      Edit budget
+    </a>
+  </div>
   <% end %>
-  <section class="transaction-table">
-    <table>
-      <tr>
-        <th>Date</th>
-        <th>Amount</th>
-        <th>Merchant</th>
-      </tr>
+  <div class="transactions-this-month">
+    <h3>Transactions in <%=@date.strftime("%B")%></h3>
+    <table class="basic-table">
       <% @transactions.each do |transaction| %>
       <tr>
-        <td><%= to_uk_date(transaction.date)%></td>
-        <td>&pound; <%= to_pounds(transaction.amount) %></td>
-        <td>
+        <td class="date"><%= to_uk_date(transaction.date)%></td>
+        <td class="merchant">
           <a href = "/merchants/<%=transaction.merchant_id%>">
             <%= transaction.merchant.name %>
           </a>
         </td>
+        <td class="amount">&pound; <%= to_pounds(transaction.amount) %></td>
       </tr>
       <% end %>
     </table>
-  </section>
+  </div>
+  <div class="monthly">
+    <h3>Previous spending for <%= @tag.name %></h3>
+    <table class="basic-table">
+      <% @monthly.each do |month| %>
+      <tr>
+        <td><%= month['month'] %></td>
+        <td>&pound; <%= to_pounds(month['amount'].to_i) %></td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
 </main>
