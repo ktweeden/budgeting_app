@@ -121,8 +121,11 @@ html {
   .dashboard h3 {
     text-align: center;
     margin-bottom: 2rem; }
-  .dashboard .year-overview {
-    margin-top: 2.5rem; }
+  .dashboard .previous-months {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 2rem; }
 
 .spinning {
   animation-name: spin;
@@ -283,12 +286,19 @@ html {
   color: white;
   margin: 0.5rem 0;
   font-family: "Lato", sans-serif;
-  letter-spacing: 0.05rem; }
+  letter-spacing: 0.05rem;
+  text-align: center; }
 
 .small-btn {
   height: 3rem;
   width: 10rem;
   font-size: 1.2rem; }
+
+.medium-btn {
+  height: 3.5rem;
+  width: 10rem;
+  font-size: 1.2rem;
+  padding: 0.5rem 0; }
 
 .large-btn {
   height: 4rem;
@@ -319,7 +329,11 @@ a.large-btn:visited {
     text-align: center;
     display: flex;
     justify-content: center;
-    align-items: center; }
+    align-items: center;
+    max-width: 100%; }
+  .spending-progress .over-spent {
+    background-color: #b90706;
+    color: white; }
 
 .large-progress-bar {
   height: 3rem; }

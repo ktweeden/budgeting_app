@@ -12,7 +12,7 @@ get '/tags/:id' do
   @tag = Tag.find_by_id(params['id'])
   @transactions = @tag.transactions
   @budget = @tag.budget
-  @budget_info = @budget.month_spending_info(@month, @year) if @budge != nil
+  @budget_info = @budget.month_spending_info(@month, @year) if @budget != nil
   @monthly = @tag.previous_3_months_spending_info
   erb(:"tags/tag")
 end

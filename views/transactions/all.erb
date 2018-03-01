@@ -2,7 +2,7 @@
 <main class = "all-transactions">
   <div class="main-budget">
     <div class="spending-progress large-progress-bar">
-      <div class="spent" style="width:<%=@main_budget['percentage']%>%">
+      <div class="spent <%if @main_budget['percentage'] > 100%>over-spent<%end%>" style="width:<%=@main_budget['percentage']%>%">
         <%=@main_budget['percentage']%>&#37;
       </div>
     </div>
@@ -40,7 +40,7 @@
       <li>
         <%= budget['tag'] %>
         <div class="spending-progress standard-progress-bar">
-          <div class="spent" style="width:<%=budget['percentage']%>%">
+          <div class="spent <%if budget['percentage'] > 100%>over-spent<%end%>" style="width:<%=budget['percentage']%>%">
             <%=budget['percentage']%>&#37;
           </div>
         </div>

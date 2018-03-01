@@ -3,7 +3,7 @@
   <% if @budget != nil%>
   <div class="main-budget">
     <div class="spending-progress large-progress-bar">
-      <div class="spent" style="width:<%=@budget_info['percentage']%>%">
+      <div class="spent<%if @budget_info['percentage'] > 100 %>over-spent<%end%>" style="width:<%=@budget_info['percentage']%>%">
         <%=@budget_info['percentage']%>&#37;
       </div>
     </div>

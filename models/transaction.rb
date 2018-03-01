@@ -93,5 +93,4 @@ class Transaction
     results = SqlRunner.run(sql, values)
     results.map {|transaction| Transaction.new(transaction)}
   end
-
 end

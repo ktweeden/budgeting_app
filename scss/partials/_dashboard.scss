@@ -30,8 +30,11 @@
     margin-bottom: 2rem;
   }
 
-  .year-overview {
-    margin-top: 2.5rem;
+  .previous-months {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 2rem;
   }
 
 }

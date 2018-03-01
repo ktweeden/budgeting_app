@@ -2,7 +2,7 @@
 <main class="dashboard">
   <div class="main-budget">
     <div class="spending-progress large-progress-bar">
-      <div class="spent" style="width:<%=@main_budget['percentage']%>%">
+      <div class="spent <%if @main_budget['percentage'] > 100%>over-spent<%end%>" style="width:<%=@main_budget['percentage']%>%">
         <%=@main_budget['percentage']%>&#37;
       </div>
     </div>
@@ -14,7 +14,7 @@
       <li>
         <%= budget['tag'] %>
         <div class="spending-progress standard-progress-bar">
-          <div class="spent" style="width:<%=budget['percentage']%>%">
+          <div class="spent <%if budget['percentage'] > 100%>over-spent<%end%>" style="width:<%=budget['percentage']%>%">
             <%=budget['percentage']%>&#37;
           </div>
         </div>
@@ -22,7 +22,11 @@
       </li>
     <% end %>
     <a class="btn small-btn" href="/budgets/add">Add a budget </a>
-    <a class="btn large-btn year-overview" href = "/">Year overview</a>
+    <ul class="previous-months">
+      <% @previous.each do |date| %>
+      <a class="btn medium-btn" href = "/analytics/dashboard/<%=date.strftime("%m")%>/<%=date.strftime("%Y")%>"><%=date.strftime("%B")%> Overview</a>
+      <% end %>
+    </ul>
   </ul>
   <div class="transactions right-column">
     <a class="btn large-btn" href = "/add/transaction">Add a transaction</a>

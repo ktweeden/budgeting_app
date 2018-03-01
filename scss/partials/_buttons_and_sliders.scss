@@ -8,12 +8,21 @@
   margin: 0.5rem 0;
   font-family: $header-font;
   letter-spacing: 0.05rem;
+  text-align: center;
 }
 
 .small-btn {
   height: 3rem;
   width: 10rem;
   font-size: 1.2rem;
+}
+
+.medium-btn {
+  height: 3.5rem;
+  width: 10rem;
+  font-size: 1.2rem;
+  padding: 0.5rem 0;
+
 }
 
 .large-btn {
@@ -56,6 +65,12 @@ a.large-btn:visited {
     display: flex;
     justify-content: center;
     align-items: center;
+    max-width: 100%;
+  }
+
+  .over-spent {
+    background-color: #b90706;
+    color: white;
   }
 }
 
