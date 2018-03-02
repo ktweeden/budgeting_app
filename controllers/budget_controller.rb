@@ -36,7 +36,7 @@ post '/budgets/update/:id' do
 end
 
 get '/budgets/add' do
-  @tags = Tag.all
+  @tags = Tag.without_budgets
   erb(:"budgets/add")
 end
 

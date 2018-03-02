@@ -6,11 +6,11 @@
       <% @transactions.each do |transaction| %>
       <tr>
         <td><%= to_uk_date(transaction.date) %></td>
-        <td>&pound; <%= to_pounds(transaction.amount) %></td>
         <td>
           <a href ="/tags/<%= transaction.tag_id %>">
           <%= transaction.tag.name %>
         </td>
+        <td>&pound; <%= to_pounds(transaction.amount) %></td>
       </tr>
       <% end %>
     </table>

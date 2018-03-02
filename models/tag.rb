@@ -130,4 +130,13 @@ class Tag
     values = [month, year]
     results = SqlRunner.run(sql, values)
   end
+
+
+  def self.without_budgets
+    sql = "SELECT * FROM tags
+    LEFT JOIN budgets ON budgets.tag_id = tags.id
+    WHERE budgets.tag_id IS NULL;"
+    results = SqlRunner.run(sql)
+    results.map {|tag| Tag.new(tag)}
+  end
 end
