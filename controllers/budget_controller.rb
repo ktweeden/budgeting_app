@@ -40,6 +40,12 @@ get '/budgets/add' do
   erb(:"budgets/add")
 end
 
+get '/budgets/delete/:id' do
+  @budget = Budget.find_by_id(params['id'])
+  @budget.delete
+  redirect '/budgets'
+end
+
 post '/budgets/add' do
    budget_hash = {
      'amount' => to_pennies(params['amount']),

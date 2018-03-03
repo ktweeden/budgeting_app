@@ -133,7 +133,7 @@ class Tag
 
 
   def self.without_budgets
-    sql = "SELECT * FROM tags
+    sql = "SELECT tags.name, tags.id FROM tags
     LEFT JOIN budgets ON budgets.tag_id = tags.id
     WHERE budgets.tag_id IS NULL;"
     results = SqlRunner.run(sql)

@@ -4,5 +4,6 @@
     <label for="amount">Amount:</label>
     <input type="number" name="amount" value="<%= to_pounds(@budget.amount)%>"/>
     <input class="large-btn btn"type="submit" value="Update Budget" />
+    <a class ="delete btn large-btn" href="/budgets/delete/<%=@budget.id%>">Delete budget</a>
   </form>
 </main>
