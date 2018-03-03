@@ -1,6 +1,7 @@
 <h1 class="main-title">Add a Transaction</h1>
 <main class="form-container">
   <form class="add-form" action="/add/transaction" method="post">
+    <% if @error != nil%><p class="error"><%=@error%></p><% end %>
     <label class="small" for="date">Date:</label>
     <input class="small" type="date" name="dt">
     <label class="small" for="amount">Amount:</label>

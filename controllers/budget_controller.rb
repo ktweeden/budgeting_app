@@ -41,16 +41,11 @@ get '/budgets/add' do
 end
 
 post '/budgets/add' do
-   if Budget.find_by_tag_id(params['tag_id'].to_i) != nil
-      redirect '/'
-   else
-     budget_hash = {
-       'amount' => to_pennies(params['amount']),
-       'tag_id' => params['tag_id']
-     }
-     new_budget = Budget.new(budget_hash)
-     new_budget.save
-     redirect '/budgets'
-   end
-
+   budget_hash = {
+     'amount' => to_pennies(params['amount']),
+     'tag_id' => params['tag_id']
+   }
+   new_budget = Budget.new(budget_hash)
+   new_budget.save
+   redirect '/budgets'
 end

@@ -21,9 +21,23 @@ get '/add/transaction' do
   erb(:"transactions/add")
 end
 
+get '/add/transaction/negative' do
+  @error = "Transaction amounts must be positive."
+  @merchants = Merchant.all
+  @tags = Tag.all
+  erb(:"transactions/add")
+end
+
+get '/add/transaction/time' do
+  @error = "Transaction date must be today or earlier."
+  @merchants = Merchant.all
+  @tags = Tag.all
+  erb(:"transactions/add")
+end
+
 post '/add/transaction' do
-  redirect '/' if is_negative?(params['amount'])
-  redirect '/' if Time.parse(params['dt']) > Time.now
+  redirect '/add/transaction/negative' if is_negative?(params['amount'])
+  redirect '/add/transaction/time' if Time.parse(params['dt']) > Time.now
   pennies = to_pennies(params['amount'])
   transaction_hash = {
     'dt' => params['dt'],
