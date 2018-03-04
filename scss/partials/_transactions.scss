@@ -1,28 +1,61 @@
 .all-transactions {
-  padding: 0 5rem 0 5rem;
   display: grid;
-  grid-template-areas:
-    "main_budget main_budget"
-    "transactions cta"
-    "transactions previous_spending"
-    "transactions .";
-
-  grid-template-columns: 50% 50%;
   grid-template-rows: auto;
   justify-content: center;
 
+  @include mq-web-layout {
+    grid-template-areas:
+      "main_budget main_budget"
+      "transactions cta"
+      "transactions previous_spending"
+      "transactions .";
+
+    grid-template-columns: 50% 50%;
+    grid-template-rows: auto;
+  };
+
+  @include mq-phone-layout {
+    grid-template-areas:
+    "main_budget"
+    "cta"
+    "transactions"
+    "previous_spending";
+
+    grid-template-columns: 100%;
+    grid-template-rows: auto;
+
+    padding: 0 2rem;
+  };
 
   .cta {
     grid-area: cta;
-    padding: 2rem;
+
+    @include mq-web-layout {
+      padding: 2rem;
+    };
+    @include mq-phone-layout {
+      padding-top: 2rem;
+    };
+
   }
 
   .previous-spending {
     grid-area: previous_spending;
-    padding: 0 2rem 2rem 2rem;
+
+    @include mq-web-layout {
+      padding: 0 2rem 2rem 2rem;
+    };
+
+    @include mq-phone-layout {
+      padding-bottom: 2rem;
+    };
 
     h3 {
       margin: 2rem 0 1rem 0;
+
+      @include mq-phone-layout {
+        text-align: center;
+      };
     }
   }
 

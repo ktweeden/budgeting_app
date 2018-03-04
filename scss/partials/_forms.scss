@@ -7,8 +7,15 @@
 .add-form {
   display: flex;
   flex-direction: column;
-  width: 40vw;
   flex-wrap: wrap;
+
+  @include mq-web-layout {
+    width: 40vw;
+  };
+
+  @include mq-phone-layout {
+    width: 80vw;
+  };
 
 
   input {

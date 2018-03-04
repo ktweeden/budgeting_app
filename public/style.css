@@ -47,11 +47,17 @@ header {
   margin: 0.5rem 1rem;
   justify-content: space-between;
   align-items: flex-end; }
-  header nav ul {
+  @media only screen and (orientation: portrait) and (max-device-width: 604px), only screen and (orientation: landscape) and (max-device-width: 604px) {
+    header .primary-nav {
+      max-width: 80vw; } }
+  header .primary-nav ul {
     display: flex;
     flex-direction: row; }
-    header nav ul li {
+    header .primary-nav ul li {
       margin-right: 1rem; }
+    @media only screen and (orientation: portrait) and (max-device-width: 604px), only screen and (orientation: landscape) and (max-device-width: 604px) {
+      header .primary-nav ul .page-link {
+        display: none; } }
   header .site-title {
     display: flex;
     flex-direction: row;
@@ -62,15 +68,33 @@ header {
       height: 2rem;
       align-self: baseline; }
 
+@media only screen and (orientation: portrait) and (min-device-width: 605px), only screen and (orientation: landscape) and (min-device-width: 605px) {
+  .secondary-nav {
+    display: none; } }
+@media only screen and (orientation: portrait) and (max-device-width: 604px), only screen and (orientation: landscape) and (max-device-width: 604px) {
+  .secondary-nav {
+    width: 100%;
+    background: #f0f0f0; }
+    .secondary-nav ul {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      padding: 1rem; }
+    .secondary-nav li {
+      margin: 0.5rem;
+      padding: 0.5rem;
+      border: 1px solid #003554; } }
 html {
   font-family: "Arvo", serif;
   box-sizing: border-box; }
 
 .budgets {
   grid-area: budgets;
-  padding: 2rem;
   display: flex;
   flex-direction: column; }
+  @media only screen and (orientation: portrait) and (min-device-width: 605px), only screen and (orientation: landscape) and (min-device-width: 605px) {
+    .budgets {
+      padding: 2rem; } }
   .budgets h2 {
     margin-bottom: 2rem;
     text-align: center; }
@@ -80,20 +104,41 @@ html {
       text-align: right; }
 
 .all-transactions {
-  padding: 0 5rem 0 5rem;
   display: grid;
-  grid-template-areas: "main_budget main_budget" "transactions cta" "transactions previous_spending" "transactions .";
-  grid-template-columns: 50% 50%;
   grid-template-rows: auto;
   justify-content: center; }
+  @media only screen and (orientation: portrait) and (min-device-width: 605px), only screen and (orientation: landscape) and (min-device-width: 605px) {
+    .all-transactions {
+      grid-template-areas: "main_budget main_budget" "transactions cta" "transactions previous_spending" "transactions .";
+      grid-template-columns: 50% 50%;
+      grid-template-rows: auto; } }
+  @media only screen and (orientation: portrait) and (max-device-width: 604px), only screen and (orientation: landscape) and (max-device-width: 604px) {
+    .all-transactions {
+      grid-template-areas: "main_budget" "cta" "transactions" "previous_spending";
+      grid-template-columns: 100%;
+      grid-template-rows: auto;
+      padding: 0 2rem; } }
   .all-transactions .cta {
-    grid-area: cta;
-    padding: 2rem; }
+    grid-area: cta; }
+    @media only screen and (orientation: portrait) and (min-device-width: 605px), only screen and (orientation: landscape) and (min-device-width: 605px) {
+      .all-transactions .cta {
+        padding: 2rem; } }
+    @media only screen and (orientation: portrait) and (max-device-width: 604px), only screen and (orientation: landscape) and (max-device-width: 604px) {
+      .all-transactions .cta {
+        padding-top: 2rem; } }
   .all-transactions .previous-spending {
-    grid-area: previous_spending;
-    padding: 0 2rem 2rem 2rem; }
+    grid-area: previous_spending; }
+    @media only screen and (orientation: portrait) and (min-device-width: 605px), only screen and (orientation: landscape) and (min-device-width: 605px) {
+      .all-transactions .previous-spending {
+        padding: 0 2rem 2rem 2rem; } }
+    @media only screen and (orientation: portrait) and (max-device-width: 604px), only screen and (orientation: landscape) and (max-device-width: 604px) {
+      .all-transactions .previous-spending {
+        padding-bottom: 2rem; } }
     .all-transactions .previous-spending h3 {
       margin: 2rem 0 1rem 0; }
+      @media only screen and (orientation: portrait) and (max-device-width: 604px), only screen and (orientation: landscape) and (max-device-width: 604px) {
+        .all-transactions .previous-spending h3 {
+          text-align: center; } }
   .all-transactions .spending-progress-info {
     text-align: right; }
 
@@ -106,18 +151,32 @@ html {
 .dashboard {
   padding: 0 5rem 0 5rem;
   display: grid;
-  grid-template-areas: "main_budget main_budget" "budgets transactions" "budgets transactions" "categories merchants";
-  grid-template-columns: 50% 50%;
-  grid-template-rows: auto auto 2fr 2fr;
   justify-content: center; }
+  @media only screen and (orientation: portrait) and (max-device-width: 604px), only screen and (orientation: landscape) and (max-device-width: 604px) {
+    .dashboard {
+      padding: 0 2rem; } }
+  @media only screen and (orientation: portrait) and (min-device-width: 605px), only screen and (orientation: landscape) and (min-device-width: 605px) {
+    .dashboard {
+      grid-template-areas: "main_budget main_budget" "budgets transactions" "budgets transactions" "categories merchants";
+      grid-template-columns: 50% 50%;
+      grid-template-rows: auto auto 2fr 2fr; } }
+  @media only screen and (orientation: portrait) and (max-device-width: 604px), only screen and (orientation: landscape) and (max-device-width: 604px) {
+    .dashboard {
+      grid-template-areas: "main_budget" "transactions" "budgets" "categories" "merchants";
+      grid-template-columns: 100%;
+      grid-template-rows: auto; } }
   .dashboard .categories {
-    grid-area: categories;
-    padding: 2rem; }
+    grid-area: categories; }
   .dashboard .merchants {
-    grid-area: merchants;
-    padding: 2rem; }
+    grid-area: merchants; }
   .dashboard .right-column {
     justify-self: center; }
+    @media only screen and (orientation: portrait) and (min-device-width: 605px), only screen and (orientation: landscape) and (min-device-width: 605px) {
+      .dashboard .right-column {
+        padding: 2rem; } }
+    @media only screen and (orientation: portrait) and (max-device-width: 604px), only screen and (orientation: landscape) and (max-device-width: 604px) {
+      .dashboard .right-column {
+        padding: 2rem 0; } }
   .dashboard h3 {
     text-align: center;
     margin-bottom: 2rem; }
@@ -126,6 +185,9 @@ html {
     justify-content: space-between;
     width: 100%;
     margin-top: 2rem; }
+    @media only screen and (orientation: portrait) and (max-device-width: 604px), only screen and (orientation: landscape) and (max-device-width: 604px) {
+      .dashboard .previous-months {
+        flex-direction: column; } }
 
 .spinning {
   animation-name: spin;
@@ -156,18 +218,30 @@ html {
 .all-budgets {
   padding: 0 5rem 0 5rem;
   display: grid;
-  grid-template-areas: "main_budget main_budget" "edit budgets" "edit budgets";
-  grid-template-columns: 50% 50%;
-  grid-template-rows: auto;
-  justify-content: center; }
+  justify-content: center;
+  grid-template-rows: auto; }
+  @media only screen and (orientation: portrait) and (min-device-width: 605px), only screen and (orientation: landscape) and (min-device-width: 605px) {
+    .all-budgets {
+      grid-template-areas: "main_budget main_budget" "edit budgets" "edit budgets";
+      grid-template-columns: 50% 50%; } }
+  @media only screen and (orientation: portrait) and (max-device-width: 604px), only screen and (orientation: landscape) and (max-device-width: 604px) {
+    .all-budgets {
+      grid-template-areas: "main_budget" "edit" "budgets";
+      grid-template-columns: 100%;
+      padding: 0 2rem; } }
   .all-budgets h3 {
     text-align: center;
     width: 100%;
     padding-bottom: 1rem; }
   .all-budgets .editable-budgets {
     grid-area: edit;
-    padding: 2rem;
     justify-content: center; }
+    @media only screen and (orientation: portrait) and (min-device-width: 605px), only screen and (orientation: landscape) and (min-device-width: 605px) {
+      .all-budgets .editable-budgets {
+        padding: 2rem; } }
+    @media only screen and (orientation: portrait) and (max-device-width: 604px), only screen and (orientation: landscape) and (max-device-width: 604px) {
+      .all-budgets .editable-budgets {
+        padding: 2rem 0; } }
     .all-budgets .editable-budgets td {
       flex: 1; }
     .all-budgets .editable-budgets .amount {
@@ -181,20 +255,29 @@ html {
     padding: 2rem; }
 
 .all-merchants {
-  padding: 0 5rem 0 5rem;
   display: grid;
-  grid-template-areas: "merchant_list monthly" "merchant_list cta" "merchant_list .";
-  grid-template-columns: 50% 50%;
   grid-template-rows: auto;
   justify-content: center; }
+  @media only screen and (orientation: portrait) and (min-device-width: 605px), only screen and (orientation: landscape) and (min-device-width: 605px) {
+    .all-merchants {
+      grid-template-areas: "merchant_list monthly" "merchant_list cta" "merchant_list .";
+      grid-template-columns: 50% 50%;
+      padding: 0 5rem 0 5rem; } }
+  @media only screen and (orientation: portrait) and (max-device-width: 604px), only screen and (orientation: landscape) and (max-device-width: 604px) {
+    .all-merchants {
+      grid-template-areas: "merchant_list" "cta" "monthly";
+      grid-template-columns: 100%;
+      padding: 0 2rem; } }
   .all-merchants h3 {
     text-align: center;
     width: 100%;
     padding-bottom: 1rem; }
   .all-merchants .merchant-list {
     grid-area: merchant_list;
-    padding: 2rem;
     justify-content: center; }
+    @media only screen and (orientation: portrait) and (min-device-width: 605px), only screen and (orientation: landscape) and (min-device-width: 605px) {
+      .all-merchants .merchant-list {
+        padding: 2rem; } }
     .all-merchants .merchant-list .name {
       flex: 2;
       text-align: left; }
@@ -203,80 +286,137 @@ html {
       text-align: right; }
   .all-merchants .top-this-month {
     grid-area: monthly;
-    padding: 2rem;
     justify-content: center; }
+    @media only screen and (orientation: portrait) and (min-device-width: 605px), only screen and (orientation: landscape) and (min-device-width: 605px) {
+      .all-merchants .top-this-month {
+        padding: 2rem; } }
+    @media only screen and (orientation: portrait) and (max-device-width: 604px), only screen and (orientation: landscape) and (max-device-width: 604px) {
+      .all-merchants .top-this-month {
+        padding-top: 2rem; } }
   .all-merchants .cta {
     grid-area: cta; }
 
 .individual-merchant-container {
-  padding: 0 5rem 0 5rem;
   display: grid;
-  grid-template-areas: "transactions monthly";
-  grid-template-columns: 50% 50%;
   grid-template-rows: auto;
   justify-content: center; }
+  @media only screen and (orientation: portrait) and (min-device-width: 605px), only screen and (orientation: landscape) and (min-device-width: 605px) {
+    .individual-merchant-container {
+      grid-template-areas: "transactions monthly";
+      grid-template-columns: 50% 50%;
+      padding: 0 5rem 0 5rem; } }
+  @media only screen and (orientation: portrait) and (max-device-width: 604px), only screen and (orientation: landscape) and (max-device-width: 604px) {
+    .individual-merchant-container {
+      grid-template-areas: "transactions" "monthly";
+      grid-template-columns: 100%;
+      padding: 0 2rem; } }
   .individual-merchant-container h3 {
     text-align: center;
     width: 100%;
     padding-bottom: 1rem; }
   .individual-merchant-container .transactions-this-month {
     grid-area: transactions;
-    padding: 2rem;
     justify-content: center; }
+    @media only screen and (orientation: portrait) and (min-device-width: 605px), only screen and (orientation: landscape) and (min-device-width: 605px) {
+      .individual-merchant-container .transactions-this-month {
+        padding: 2rem; } }
   .individual-merchant-container .monthly {
     grid-area: monthly;
-    padding: 2rem;
     justify-content: center; }
+    @media only screen and (orientation: portrait) and (min-device-width: 605px), only screen and (orientation: landscape) and (min-device-width: 605px) {
+      .individual-merchant-container .monthly {
+        padding: 2rem; } }
 
 .all-tags {
-  padding: 0 5rem 0 5rem;
   display: grid;
-  grid-template-areas: "tag_list top_this_month" "tag_list budgets" "tag_list .";
-  grid-template-columns: 50% 50%;
   grid-template-rows: auto;
   justify-content: center; }
+  @media only screen and (orientation: portrait) and (min-device-width: 605px), only screen and (orientation: landscape) and (min-device-width: 605px) {
+    .all-tags {
+      grid-template-areas: "tag_list top_this_month" "tag_list budgets" "tag_list .";
+      grid-template-columns: 50% 50%;
+      padding: 0 5rem 0 5rem; } }
+  @media only screen and (orientation: portrait) and (max-device-width: 604px), only screen and (orientation: landscape) and (max-device-width: 604px) {
+    .all-tags {
+      grid-template-areas: "top_this_month" "budgets" "tag_list";
+      grid-template-columns: 100%;
+      padding: 0 2rem; } }
   .all-tags h3 {
     text-align: center;
     width: 100%;
     padding-bottom: 1rem; }
   .all-tags .tag-list {
     grid-area: tag_list;
-    padding: 2rem;
     justify-content: center; }
+    @media only screen and (orientation: portrait) and (min-device-width: 605px), only screen and (orientation: landscape) and (min-device-width: 605px) {
+      .all-tags .tag-list {
+        padding: 2rem; } }
+    @media only screen and (orientation: portrait) and (max-device-width: 604px), only screen and (orientation: landscape) and (max-device-width: 604px) {
+      .all-tags .tag-list {
+        padding: 2rem 0; } }
     .all-tags .tag-list table {
       margin-bottom: 3rem; }
   .all-tags .top-this-month {
-    grid-area: top_this_month;
-    padding: 2rem 2rem 0 2rem; }
+    grid-area: top_this_month; }
+    @media only screen and (orientation: portrait) and (min-device-width: 605px), only screen and (orientation: landscape) and (min-device-width: 605px) {
+      .all-tags .top-this-month {
+        padding: 2rem 2rem 0 2rem; } }
+    @media only screen and (orientation: portrait) and (max-device-width: 604px), only screen and (orientation: landscape) and (max-device-width: 604px) {
+      .all-tags .top-this-month {
+        padding: 2rem 0; } }
   .all-tags .cta {
     grid-area: cta; }
 
 .individual-tag-container {
-  padding: 0 5rem 0 5rem;
   display: grid;
-  grid-template-areas: "main_budget main_budget" "transactions monthly";
-  grid-template-columns: 50% 50%;
   grid-template-rows: auto;
   justify-content: center; }
+  @media only screen and (orientation: portrait) and (min-device-width: 605px), only screen and (orientation: landscape) and (min-device-width: 605px) {
+    .individual-tag-container {
+      grid-template-areas: "main_budget main_budget" "transactions monthly";
+      grid-template-columns: 50% 50%;
+      padding: 0 5rem 0 5rem; } }
+  @media only screen and (orientation: portrait) and (max-device-width: 604px), only screen and (orientation: landscape) and (max-device-width: 604px) {
+    .individual-tag-container {
+      grid-template-areas: "main_budget" "transactions" "monthly";
+      grid-template-columns: 100%;
+      padding: 0 2rem; } }
   .individual-tag-container h3 {
     text-align: center;
     width: 100%;
     padding-bottom: 1rem; }
   .individual-tag-container .transactions-this-month {
     grid-area: transactions;
-    padding: 2rem;
     justify-content: center; }
+    @media only screen and (orientation: portrait) and (min-device-width: 605px), only screen and (orientation: landscape) and (min-device-width: 605px) {
+      .individual-tag-container .transactions-this-month {
+        padding: 2rem; } }
+    @media only screen and (orientation: portrait) and (max-device-width: 604px), only screen and (orientation: landscape) and (max-device-width: 604px) {
+      .individual-tag-container .transactions-this-month {
+        padding: 2rem 0; } }
     .individual-tag-container .transactions-this-month .date {
       flex: auto; }
+      @media only screen and (orientation: portrait) and (max-device-width: 604px), only screen and (orientation: landscape) and (max-device-width: 604px) {
+        .individual-tag-container .transactions-this-month .date {
+          order: 2; } }
     .individual-tag-container .transactions-this-month .merchant {
       flex: 1; }
+      @media only screen and (orientation: portrait) and (max-device-width: 604px), only screen and (orientation: landscape) and (max-device-width: 604px) {
+        .individual-tag-container .transactions-this-month .merchant {
+          order: 1;
+          flex-basis: 100%; } }
     .individual-tag-container .transactions-this-month .amount {
       text-align: right;
       flex: auto; }
+      @media only screen and (orientation: portrait) and (max-device-width: 604px), only screen and (orientation: landscape) and (max-device-width: 604px) {
+        .individual-tag-container .transactions-this-month .amount {
+          order: 3; } }
   .individual-tag-container .monthly {
     grid-area: monthly;
-    padding: 2rem;
     justify-content: center; }
+    @media only screen and (orientation: portrait) and (min-device-width: 605px), only screen and (orientation: landscape) and (min-device-width: 605px) {
+      .individual-tag-container .monthly {
+        padding: 2rem; } }
 
 .btn {
   display: flex;
@@ -296,9 +436,14 @@ html {
 
 .medium-btn {
   height: 3.5rem;
-  width: 10rem;
   font-size: 1.2rem;
   padding: 0.5rem 0; }
+  @media only screen and (orientation: portrait) and (min-device-width: 605px), only screen and (orientation: landscape) and (min-device-width: 605px) {
+    .medium-btn {
+      width: 10rem; } }
+  @media only screen and (orientation: portrait) and (max-device-width: 604px), only screen and (orientation: landscape) and (max-device-width: 604px) {
+    .medium-btn {
+      width: 100%; } }
 
 .large-btn {
   height: 4rem;
@@ -313,10 +458,18 @@ a.large-btn:visited {
 
 .main-budget {
   grid-area: main_budget;
-  width: 60%;
   justify-self: center; }
+  @media only screen and (orientation: portrait) and (min-device-width: 605px), only screen and (orientation: landscape) and (min-device-width: 605px) {
+    .main-budget {
+      width: 60%; } }
+  @media only screen and (orientation: portrait) and (max-device-width: 604px), only screen and (orientation: landscape) and (max-device-width: 604px) {
+    .main-budget {
+      width: 100%; } }
   .main-budget .spending-progress-info {
     text-align: right; }
+    @media only screen and (orientation: portrait) and (max-device-width: 604px), only screen and (orientation: landscape) and (max-device-width: 604px) {
+      .main-budget .spending-progress-info {
+        padding-bottom: 1rem; } }
 
 .spending-progress {
   width: 100%;
@@ -352,12 +505,18 @@ th {
 tr {
   border-bottom: 1px solid black; }
 
-td {
-  padding: 0.5rem 1rem; }
+@media only screen and (orientation: portrait) and (min-device-width: 605px), only screen and (orientation: landscape) and (min-device-width: 605px) {
+  td {
+    padding: 0.5rem 1rem; } }
+@media only screen and (orientation: portrait) and (max-device-width: 604px), only screen and (orientation: landscape) and (max-device-width: 604px) {
+  td {
+    padding: 0.5rem 0; } }
 
 .transactions {
-  grid-area: transactions;
-  padding: 2rem; }
+  grid-area: transactions; }
+  @media only screen and (orientation: portrait) and (min-device-width: 605px), only screen and (orientation: landscape) and (min-device-width: 605px) {
+    .transactions {
+      padding: 2rem; } }
   .transactions h3 {
     margin-top: 2rem; }
   .transactions table {
@@ -377,14 +536,23 @@ td {
       flex: 1; }
     .transactions tr .tag {
       order: 3;
-      text-align: left;
-      flex-basis: 60%; }
+      text-align: left; }
+      @media only screen and (orientation: portrait) and (max-device-width: 604px), only screen and (orientation: landscape) and (max-device-width: 604px) {
+        .transactions tr .tag {
+          flex-basis: 50%; } }
+      @media only screen and (orientation: portrait) and (min-device-width: 605px), only screen and (orientation: landscape) and (min-device-width: 605px) {
+        .transactions tr .tag {
+          flex-basis: 60%; } }
     .transactions tr .date {
       order: 4;
       text-align: right;
       flex: 1; }
-    .transactions tr td {
-      padding: 0.2rem 1rem; }
+    @media only screen and (orientation: portrait) and (min-device-width: 605px), only screen and (orientation: landscape) and (min-device-width: 605px) {
+      .transactions tr td {
+        padding: 0.2rem 1rem; } }
+    @media only screen and (orientation: portrait) and (max-device-width: 604px), only screen and (orientation: landscape) and (max-device-width: 604px) {
+      .transactions tr td {
+        padding: 0.2rem 0; } }
 
 .basic-table {
   width: 100%;
@@ -399,6 +567,9 @@ td {
 .main-title {
   text-align: center;
   padding: 2rem 0; }
+  @media only screen and (orientation: portrait) and (max-device-width: 604px), only screen and (orientation: landscape) and (max-device-width: 604px) {
+    .main-title {
+      padding: 2rem 1rem; } }
 
 .site-title {
   font-family: "Quicksand", sans-serif; }
@@ -411,8 +582,14 @@ a:visited {
   color: black; }
 
 h1 {
-  font-size: 4rem;
   font-family: "Lato", sans-serif; }
+  @media only screen and (orientation: portrait) and (min-device-width: 605px), only screen and (orientation: landscape) and (min-device-width: 605px) {
+    h1 {
+      font-size: 4rem; } }
+  @media only screen and (orientation: portrait) and (max-device-width: 604px), only screen and (orientation: landscape) and (max-device-width: 604px) {
+    h1 {
+      font-size: 3.5rem;
+      max-width: 100vw; } }
 
 h2 {
   font-size: 1.75rem;
@@ -430,8 +607,13 @@ h3 {
 .add-form {
   display: flex;
   flex-direction: column;
-  width: 40vw;
   flex-wrap: wrap; }
+  @media only screen and (orientation: portrait) and (min-device-width: 605px), only screen and (orientation: landscape) and (min-device-width: 605px) {
+    .add-form {
+      width: 40vw; } }
+  @media only screen and (orientation: portrait) and (max-device-width: 604px), only screen and (orientation: landscape) and (max-device-width: 604px) {
+    .add-form {
+      width: 80vw; } }
   .add-form input {
     width: 100%;
     height: 2rem;

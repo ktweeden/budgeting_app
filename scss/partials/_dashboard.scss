@@ -1,28 +1,56 @@
 .dashboard {
   padding: 0 5rem 0 5rem;
   display: grid;
-  grid-template-areas:
-    "main_budget main_budget"
-    "budgets transactions"
-    "budgets transactions"
-    "categories merchants";
 
-  grid-template-columns: 50% 50%;
-  grid-template-rows: auto auto 2fr 2fr;
+  @include mq-phone-layout {
+    padding: 0 2rem;
+  };
+
+  @include mq-web-layout {
+    grid-template-areas:
+      "main_budget main_budget"
+      "budgets transactions"
+      "budgets transactions"
+      "categories merchants";
+
+      grid-template-columns: 50% 50%;
+      grid-template-rows: auto auto 2fr 2fr;
+  };
+
+  @include mq-phone-layout {
+    grid-template-areas:
+      "main_budget"
+      "transactions"
+      "budgets"
+      "categories"
+      "merchants";
+
+      grid-template-columns: 100%;
+      grid-template-rows: auto;
+  };
+
   justify-content: center;
+
 
   .categories {
     grid-area: categories;
-    padding: 2rem;
+
   }
 
   .merchants {
     grid-area: merchants;
-    padding: 2rem;
   }
 
   .right-column {
     justify-self: center;
+
+    @include mq-web-layout {
+      padding: 2rem;
+    };
+
+    @include mq-phone-layout {
+      padding: 2rem 0;
+    };
   }
 
   h3 {
@@ -35,7 +63,13 @@
     justify-content: space-between;
     width: 100%;
     margin-top: 2rem;
+
+    @include mq-phone-layout {
+      flex-direction: column;
+    };
   }
+
+
 
 }
 

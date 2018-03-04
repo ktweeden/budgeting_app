@@ -1,14 +1,27 @@
 .all-merchants {
-  padding: 0 5rem 0 5rem;
   display: grid;
-  grid-template-areas:
-    "merchant_list monthly"
-    "merchant_list cta"
-    "merchant_list .";
-
-  grid-template-columns: 50% 50%;
   grid-template-rows: auto;
   justify-content: center;
+
+  @include mq-web-layout {
+    grid-template-areas:
+      "merchant_list monthly"
+      "merchant_list cta"
+      "merchant_list .";
+
+    grid-template-columns: 50% 50%;
+    padding: 0 5rem 0 5rem;
+  };
+
+  @include mq-phone-layout {
+    grid-template-areas:
+      "merchant_list"
+      "cta"
+      "monthly";
+
+    grid-template-columns: 100%;
+    padding: 0 2rem;
+  };
 
   h3 {
     text-align: center;
@@ -18,8 +31,15 @@
 
   .merchant-list {
     grid-area: merchant_list;
-    padding: 2rem;
     justify-content: center;
+
+    @include mq-web-layout {
+      padding: 2rem;
+    };
+
+    @include mq-phone-layout {
+
+    };
 
     .name {
       flex: 2;
@@ -34,8 +54,15 @@
 
   .top-this-month {
     grid-area: monthly;
-    padding: 2rem;
     justify-content: center;
+
+    @include mq-web-layout {
+      padding: 2rem;
+    };
+
+    @include mq-phone-layout {
+      padding-top: 2rem;
+    };
   }
 
   .cta {
@@ -44,14 +71,26 @@
 }
 
 .individual-merchant-container {
-  padding: 0 5rem 0 5rem;
   display: grid;
-  grid-template-areas:
-    "transactions monthly";
-
-  grid-template-columns: 50% 50%;
   grid-template-rows: auto;
   justify-content: center;
+
+  @include mq-web-layout {
+    grid-template-areas:
+      "transactions monthly";
+
+    grid-template-columns: 50% 50%;
+    padding: 0 5rem 0 5rem;
+  };
+
+  @include mq-phone-layout {
+    grid-template-areas:
+      "transactions"
+      "monthly";
+
+    grid-template-columns: 100%;
+    padding: 0 2rem;
+  };
 
   h3 {
     text-align: center;
@@ -61,13 +100,20 @@
 
   .transactions-this-month {
     grid-area: transactions;
-    padding: 2rem;
     justify-content: center;
+
+    @include mq-web-layout {
+      padding: 2rem;
+    };
+
   }
 
   .monthly {
     grid-area: monthly;
-    padding: 2rem;
     justify-content: center;
+
+    @include mq-web-layout {
+      padding: 2rem;
+    };
   }
 }

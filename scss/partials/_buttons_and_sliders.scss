@@ -19,9 +19,16 @@
 
 .medium-btn {
   height: 3.5rem;
-  width: 10rem;
   font-size: 1.2rem;
   padding: 0.5rem 0;
+
+  @include mq-web-layout {
+    width: 10rem;
+  };
+
+  @include mq-phone-layout {
+    width: 100%;
+  };
 
 }
 
@@ -43,11 +50,22 @@ a.large-btn:visited {
 //progress bars
 .main-budget {
   grid-area: main_budget;
-  width: 60%;
   justify-self: center;
+
+  @include mq-web-layout{
+    width: 60%;
+  };
+
+  @include mq-phone-layout{
+    width: 100%;
+  };
 
   .spending-progress-info {
     text-align: right;
+
+    @include mq-phone-layout {
+      padding-bottom: 1rem;
+    };
   }
 }
 

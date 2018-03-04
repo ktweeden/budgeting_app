@@ -9,18 +9,26 @@
     <title>Budgey</title>
   </head>
   <header>
-    <nav>
+    <nav class="primary-nav">
       <ul>
-        <li><a href = "/">Home</a></li>
-        <li><a href = "/transactions">Transactions</a></li>
-        <li><a href = "/budgets">Budgets</a></li>
-        <li><a href = "/merchants">Merchants</a></li>
-        <li><a href = "/tags">Categories</a></li>
+        <li><a class="home-link" href = "/">Home</a></li>
+        <li><a class="page-link" href = "/transactions">Transactions</a></li>
+        <li><a class="page-link" href = "/budgets">Budgets</a></li>
+        <li><a class="page-link" href = "/merchants">Merchants</a></li>
+        <li><a class="page-link" href = "/tags">Categories</a></li>
       </ul>
     </nav>
     <h2 class="site-title"><img class="site-logo" src="/bird.png"><a href='/'>budgey</a></h2>
   </header>
-  <body>
+  <body class="site-wrap">
     <%= yield %>
   </body>
+  <nav class="secondary-nav">
+    <ul>
+      <li><a class="page-link" href = "/transactions">Transactions</a></li>
+      <li><a class="page-link" href = "/budgets">Budgets</a></li>
+      <li><a class="page-link" href = "/merchants">Merchants</a></li>
+      <li><a class="page-link" href = "/tags">Categories</a></li>
+    </ul>
+  </nav>
 </html>

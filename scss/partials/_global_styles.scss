@@ -7,7 +7,11 @@ header {
   justify-content: space-between;
   align-items: flex-end;
 
-  nav {
+  .primary-nav {
+
+    @include mq-phone-layout {
+      max-width: 80vw;
+    };
     ul {
       display: flex;
       flex-direction: row;
@@ -15,14 +19,27 @@ header {
       li {
         margin-right: 1rem;
       }
+
+      @include mq-phone-layout {
+        .page-link {
+          display: none;
+        }
+      };
+
     }
   }
+
 
   .site-title {
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
     align-items: flex-end;
+
+    // @include mq-phone-layout {
+    //   position: fixed;
+    //   bottom: 0;
+    // };
 
     .site-logo{
       margin-right: 1rem;
@@ -32,6 +49,34 @@ header {
   }
 }
 
+@include mq-web-layout {
+  .secondary-nav {
+    display: none;
+  }
+};
+
+@include mq-phone-layout {
+  .secondary-nav {
+    width: 100%;
+    background: $grey;
+
+    ul {
+      display: flex;
+      flex-direction: row;
+      flex-wrap:wrap;
+      // justify-content: space-between;
+      padding: 1rem;
+    }
+
+    li {
+      margin: 0.5rem;
+      padding: 0.5rem;
+      border: 1px solid $dark-blue;
+    }
+  }
+};
+
+
 html {
   font-family: $content-font;
   box-sizing: border-box;
@@ -40,9 +85,12 @@ html {
 
 .budgets {
   grid-area: budgets;
-  padding: 2rem;
   display: flex;
   flex-direction: column;
+
+  @include mq-web-layout {
+    padding: 2rem;
+  }
 
   h2 {
     margin-bottom: 2rem;

@@ -13,14 +13,22 @@ tr {
 }
 
 td {
-  padding: 0.5rem 1rem;
+  @include mq-web-layout {
+    padding: 0.5rem 1rem;
+  };
+
+  @include mq-phone-layout {
+    padding: 0.5rem 0;
+  };
 }
 
 
 //specific tables
 .transactions {
   grid-area: transactions;
-  padding: 2rem;
+  @include mq-web-layout {
+    padding: 2rem;
+  };
 
   h3 {
     margin-top: 2rem;
@@ -29,7 +37,7 @@ td {
   table {
     margin-bottom: 2rem;
   }
-  
+
   tr {
     display: flex;
     flex-direction: row;
@@ -51,7 +59,14 @@ td {
     .tag {
       order: 3;
       text-align: left;
-      flex-basis: 60%;
+
+      @include mq-phone-layout {
+        flex-basis: 50%;
+      };
+
+      @include mq-web-layout {
+        flex-basis: 60%;
+      };
     }
 
     .date {
@@ -61,7 +76,13 @@ td {
     }
 
     td {
-      padding: 0.2rem 1rem;
+      @include mq-web-layout {
+        padding: 0.2rem 1rem;
+      };
+
+      @include mq-phone-layout {
+        padding: 0.2rem 0;
+      };
     }
   }
 }
