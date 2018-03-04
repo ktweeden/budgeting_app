@@ -1,5 +1,3 @@
-require 'pry'
-
 require_relative '../models/merchant'
 require_relative '../models/tag'
 require_relative '../models/transaction'
@@ -83,7 +81,3 @@ budgets = [
 ]
 
 budgets.each {|budget| budget.save}
-
-binding.pry
-
-nil
