@@ -104,6 +104,7 @@ html {
       text-align: right; }
 
 .all-transactions {
+  padding: 0 5rem 0 5rem;
   display: grid;
   grid-template-rows: auto;
   justify-content: center; }
