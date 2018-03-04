@@ -22,3 +22,7 @@ get '/' do
   @merchants = Merchant.all_for_month(@month, @year).first(3)
   erb(:"analytics/dashboard")
 end
+
+get '/about' do
+  erb(:about)
+end

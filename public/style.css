@@ -582,6 +582,9 @@ a {
 a:visited {
   color: black; }
 
+@media only screen and (orientation: portrait) and (min-device-width: 605px), only screen and (orientation: landscape) and (min-device-width: 605px) {
+  a:hover {
+    color: #EEB902 !important; } }
 h1 {
   font-family: "Lato", sans-serif; }
   @media only screen and (orientation: portrait) and (min-device-width: 605px), only screen and (orientation: landscape) and (min-device-width: 605px) {
@@ -646,5 +649,23 @@ h3 {
   .add-form .delete {
     margin-top: 3rem;
     background-color: #b90706; }
+
+@media only screen and (orientation: portrait) and (min-device-width: 605px), only screen and (orientation: landscape) and (min-device-width: 605px) {
+  .about-container {
+    margin: 2rem 10rem; }
+    .about-container a:hover {
+      color: black !important; } }
+@media only screen and (orientation: portrait) and (max-device-width: 604px), only screen and (orientation: landscape) and (max-device-width: 604px) {
+  .about-container {
+    margin: 2rem; } }
+.about-container a {
+  color: #EEB902; }
+.about-container a:visited {
+  color: #EEB902; }
+.about-container p {
+  margin: 1rem 0; }
+.about-container hr {
+  color: #003554;
+  margin: 2rem 0; }
 
 /*# sourceMappingURL=style.css.map */

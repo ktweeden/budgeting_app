@@ -1,0 +1,30 @@
+.about-container {
+  @include mq-web-layout {
+    margin: 2rem 10rem;
+
+    a:hover {
+      color: black !important;
+    }
+  };
+
+  @include mq-phone-layout {
+    margin: 2rem;
+  };
+
+  a {
+    color: $yellow;
+  }
+
+  a:visited {
+    color: $yellow;
+  }
+
+  p {
+    margin: 1rem 0;
+  }
+
+  hr {
+    color: $dark-blue;
+    margin: 2rem 0;
+  }
+}

@@ -20,6 +20,12 @@ a:visited {
   color: black;
 }
 
+@include mq-web-layout {
+  a:hover {
+    color: $yellow !important;
+  }
+};
+
 h1 {
   font-family: $header-font;
 
