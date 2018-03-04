@@ -9,7 +9,12 @@
   font-family: $header-font;
   letter-spacing: 0.05rem;
   text-align: center;
+
 }
+
+.btn:hover {
+    color: white !important;
+  }
 
 .small-btn {
   height: 3rem;
