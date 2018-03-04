@@ -3,10 +3,9 @@ require 'pg'
 class SqlRunner
 
   def self.run(sql, values = [])
-    db_name = ENV['DB_NAME'].nil? ? 'budget' : ENV['DB_NAME']
-    db_host = ENV['DB_HOST'].nil? 'localhost' : ENV['DB_HOST']
+    db_info = ENV['DATABASE_URL'].nil? ? {dbname: 'budget', host: 'localhost'} : ENV['DATABASE_URL']
     begin
-     db = PG.connect({dbname: db_name, host: db_host})
+     db = PG.connect(db_info)
      db.prepare('query', sql)
      return result = db.exec_prepared('query', values)
    ensure
