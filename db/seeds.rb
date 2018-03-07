@@ -3,7 +3,6 @@ require_relative '../models/tag'
 require_relative '../models/transaction'
 require_relative '../models/utils'
 require_relative '../models/budget'
-require 'pry'
 
 merchants = [
   Merchant.new({'name' => 'Tesco'}),
@@ -86,7 +85,3 @@ budgets = [
 ]
 
 budgets.each {|budget| budget.save}
-
-binding.pry
-
-nil
