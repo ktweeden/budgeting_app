@@ -28,7 +28,7 @@ end
 
 post '/add/merchant' do
   sanitized_name = sanitize(params['name'])
-  redirect '/merchants' if Merchant.find_by_name(sanitised_name) != nil
+  redirect '/merchants' if Merchant.find_by_name(sanitized_name) != nil
   merchant = Merchant.new({'name' => sanitised_name})
   merchant.save
   redirect '/merchants'
