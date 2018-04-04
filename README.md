@@ -1,8 +1,7 @@
 # budgey
-A budgeting app concept made in week 5 of the CodeClan software development course.
+A budgeting app concept made in week 5 of the [CodeClan](http://codeclan.com) software development course. A live version of the app can be found at [budgey.kate-preston.com](http://budgey.kate-preston.com).
 
 ## Brief
-
 The brief for this project was as follows:
 
 You want to start tracking your spending in an attempt to be more frugal so have decided to make a budgeting app to help you see where all of your money is being spent.
