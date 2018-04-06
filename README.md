@@ -29,8 +29,8 @@ After meeting this MVP, add any extensions that you think would be useful in a b
 ## Screenshots
 ### Main page
 The main page displays an overview of spending towards budgets for the current month. For the live demo, the transaction seed date is relative to the current date and is refreshed each day using a cron action.
-[Main page](https://www.dropbox.com/s/eclt9yvrub3hvs9/Screen%20Shot%202018-03-01%20at%2011.47.48.png?dl=0)
+![Main page](https://www.dropbox.com/s/eclt9yvrub3hvs9/Screen%20Shot%202018-03-01%20at%2011.47.48.png?dl=0)
 
 ### Adding a transaction
 Users can add new transactions, merchant and budgets.
-[Adding a transaction](https://www.dropbox.com/s/zadffnsvrphg0gy/Screen%20Shot%202018-04-06%20at%2013.37.09.png?dl=0)
+![Adding a transaction](https://www.dropbox.com/s/zadffnsvrphg0gy/Screen%20Shot%202018-04-06%20at%2013.37.09.png?dl=0)
