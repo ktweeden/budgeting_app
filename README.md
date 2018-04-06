@@ -28,7 +28,7 @@ After meeting this MVP, add any extensions that you think would be useful in a b
 
 ## Screenshots
 ### Main page
-The main page displays an overview of spending towards budgets for the current month. For the live demo, the transaction seed date is relative to the current date and is refreshed each day using a cron action.
+The main page displays an overview of spending towards budgets for the current month. For the live demo, the transaction seed date is relative to the current date and is refreshed each day using a cron job.
 ![Main page](https://dl.dropboxusercontent.com/s/eclt9yvrub3hvs9/Screen%20Shot%202018-03-01%20at%2011.47.48.png?dl=0)
 
 ### Adding a transaction
